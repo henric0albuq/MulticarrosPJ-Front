@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area do Cliente</title>
+    <link rel="stylesheet" href="../Css/dashboardCliente.css" />
+  </head>
+  <body>
+    <div id="sidebar" class="sidebar">
+      <div class="logo">Painel do Cliente</div>
+      <nav>
+        <ul>
+          <li class="menu-item active" data-section="veiculos">
+            <span>🚗</span> Meus Veículos
+          </li>
+          <li class="menu-item" data-section="dados">
+            <span>👤</span> Meus Dados
+          </li>
+          <li class="menu-item" data-section="financeiro">
+            <span>💳</span> Financeiro
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <span id="clienteNome"></span>
+        <a href="../HTML/login.html" style="color: #fff">Sair</a>
+      </div>
+    </div>
+    <div class="main-content">
+      <!-- Meus Veículos -->
+      <section id="veiculosSection">
+        <h2>Meus Veículos</h2>
+        <div id="meusVeiculosLista"></div>
+      </section>
+      <!-- Meus Dados -->
+      <section id="dadosSection" class="hide">
+        <h2>Meus Dados</h2>
+        <form id="dadosForm" style="max-width: 400px">
+          <label>Nome Completo</label>
+          <input id="d_nome" required />
+          <label>Email</label>
+          <input id="d_email" type="email" required />
+          <label>Telefone</label>
+          <input id="d_telefone" required />
+          <label>CPF</label>
+          <input id="d_cpf" required />
+          <label>Data de Nascimento</label>
+          <input id="d_nasc" type="date" required />
+          <button class="btn primary" id="salvarDados">Salvar Dados</button>
+        </form>
+      </section>
+      <!-- Financeiro -->
+      <section id="financeiroSection" class="hide">
+        <h2>Financeiro</h2>
+        <div id="boletosLista"></div>
+      </section>
+    </div>
+    <!-- Modal e Toast -->
+    <div id="modalBackdrop" style="display: none">
+      <div id="modal" class="modal">
+        <div class="modal-header">
+          <span id="modalTitle"></span><button id="modalClose">×</button>
+        </div>
+        <div id="modalBody"></div>
+        <div id="modalActions"></div>
+      </div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <footer class="footer glass">
+      <div class="footer-left">
+        <img src="../Images/multilogo.png" class="footer-logo" />
+      </div>
+      <div class="muted">© 2025 </div>
+    </footer>
+    <script src="dashboardCliente.js"></script>
+  </body>
+</html>

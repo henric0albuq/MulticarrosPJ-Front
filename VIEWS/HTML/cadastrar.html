@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar - Multicarros Admin</title>
+    <link rel="stylesheet" href="../Css/cadastrar.css" />
+  </head>
+  <body>
+    <body class="auth-bg">
+    <a href="dashboard.html" class="btn-voltar-home" title="Voltar para Home">
+      <i class="fas fa-arrow-left"></i> ⬅
+    </a>
+    <div class="card-cadastro">
+      <h2 class="card-titulo">Cadastrar / Editar Veículo 🚗</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Modelo</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Preço (R$)</label>
+            <input type="number" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ano</label>
+            <input type="number" required />
+          </div>
+          <div class="form-group">
+            <label>Categoria</label>
+            <select required>
+              <option value="">-- selecione --</option>
+              <option>Sedan</option>
+              <option>SUV</option>
+              <option>Hatch</option>
+              <option>Picape</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Foto </label>
+          <input type="file" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Salvar</button>
+          <button type="button" class="btn ghost">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    
+  </body>
+</html>
