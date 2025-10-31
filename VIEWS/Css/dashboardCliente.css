@@ -264,3 +264,26 @@ label {
   .sidebar { width: 100%; min-height: unset; position: static; }
   .main-content { margin-left: 0; padding: 18px 6vw; }
 }
+
+
+
+.menu-item {
+  cursor: pointer;
+  padding: 12px 15px;
+  border-radius: 6px;
+  color: #fff;
+  transition: all 0.2s transform 0.2s;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu-item.active {
+  background: #24aa4c;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}

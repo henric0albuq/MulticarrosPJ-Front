@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastrar - Multicarros Admin</title>
+    <title>Cadastrar Veículo- Multicarros Admin</title>
     <link rel="stylesheet" href="../Css/cadastrar.css" />
   </head>
   <body>
@@ -16,7 +16,7 @@
       <form>
         <div class="form-row">
           <div class="form-group">
-            <label>Modelo</label>
+            <label>Marca/Modelo</label>
             <input type="text" required />
           </div>
           <div class="form-group">
@@ -26,9 +26,13 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Ano</label>
+            <label>Ano Fabricação</label>
+            <input type="number" required />
+            <br>
+            <label>Ano Modelo</label>
             <input type="number" required />
           </div>
+          
           <div class="form-group">
             <label>Categoria</label>
             <select required>
@@ -40,6 +44,46 @@
             </select>
           </div>
         </div>
+      <div class="form-group">
+            <label>Status</label>
+            <select required>
+              <option value="">-- selecione --</option>
+              <option>Seminovo</option>
+              <option>Novo</option>
+            </select>
+          </div>    
+          <div class="form-group">
+            <label>Espécie</label>
+            <select required>
+              <option value="">-- selecione --</option>
+              <option>Automóvel</option>
+              <option>Motocicleta</option>
+            </select>
+          </div>    
+          <div class="form-group">
+            <label>Câmbio</label>
+            <select required>
+              <option value="">-- selecione --</option>
+              <option>Automático</option>
+              <option>Manual</option>
+            </select>
+          </div>    
+          <div class="form-group">
+            <label>Cor</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Placa</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Chassi</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Renavam</label>
+            <input type="text" required />
+          </div>
         <div class="form-group">
           <label>Foto </label>
           <input type="file" accept="image/*" />

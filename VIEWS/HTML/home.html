@@ -49,13 +49,28 @@
       </p>
       <br />
       <div class="banner-botoes">
+        <!-- BOTÃO POPUP DE AVALIAÇÃO -->
+<div class="avaliacao-popup">
+  <button id="btnAvaliacao">⭐ Está gostando da Multicarros?</button>
+  <div id="popupAvaliacao" class="popup-avaliacao">
+    <p>Nos conte o que está achando:</p>
+    <div class="emoji-container">
+      <span class="emoji" data-feedback="😡">😡</span>
+      <span class="emoji" data-feedback="😕">😕</span>
+      <span class="emoji" data-feedback="😐">😐</span>
+      <span class="emoji" data-feedback="😊">😊</span>
+      <span class="emoji" data-feedback="😍">😍</span>
+    </div>
+    <p id="mensagemAvaliacao" class="mensagem-avaliacao"></p>
+  </div>
+</div>
+
   <!-- Botão interativo de marcas -->
   <div class="marcas-container">
     <button id="btnMarcas" class="btn-marcas">
-      <i class="fa-solid fa-car"></i> Nossos Carros
+      <i class="fa-solid fa-car"></i> Nossos Modelos
       <i class="fa-solid fa-chevron-down seta"></i>
     </button>
-
     <ul id="listaMarcas" class="lista-marcas-animada">
       <li><a href="#">Audi</a></li>
       <li><a href="#">BMW</a></li>
@@ -82,12 +97,84 @@
     </section>
 
     <!-- CARROS -->
-    <h2>🚗 Carros de destaque💥</h2>
+    <h2>🚗 Carros de destaque 💥</h2>
+<div class="carros-container">
+  <div class="car-card">
+    <div class="img-container">
+      <img src="../Images/onix-plus-midnight-(22).webp" alt="Chevrolet Onix">
+      <span class="badge">Chegou!</span>
+    </div>
+    <div class="car-info">
+      <h2>CHEVROLET ONIX</h2>
+      <p class="subtitle">1.0 Flex Manual</p>
+      <div class="details">
+        <span>📅 2022</span>
+        <span>⏱️ 36.000 Km</span>
+      </div>
+      <p class="price">R$ 82.900</p>
+      <button class="offer-btn" onclick="window.location.href='verDetalhes.html'">
+  Ver Detalhes
+</button>
+    </div>
+  </div>
+ <!-- 🔹 fechamento da seção de destaque -->
 
-    <h2>🚗 Veículos em estoque!</h2>
+<div class="car-card">
+    <div class="img-container">
+      <img src="../Images/Corolla1.jpg" alt="Toyota Corolla XEI">
+      <span class="badge">Chegou!</span>
+    </div>
+    <div class="car-info">
+      <h2>Toyota Corolla XEI</h2>
+      <p class="subtitle">2.0 Flex Automático</p>
+      <div class="details">
+        <span>📅 2023</span>
+        <span>⏱️ 71.000 Km</span>
+      </div>
+      <p class="price">R$ 134.000</p>
+      <button class="offer-btn">Ver Detalhes</button>
+    </div>
+  </div>
+</div>
 
 
-    
+
+<h2>🚙 Veículos em estoque!</h2>
+<div class="carros-container">
+  <div class="car-card">
+    <div class="img-container">
+      <img src="../Images/bcad5924b5c214c0faf52777d41c80c1.jpg" alt="Honda Civic">
+      <span class="badge">Seminovo</span>
+    </div>
+    <div class="car-info">
+      <h2>HONDA CIVIC</h2>
+      <p class="subtitle">2.0 Sport CVT</p>
+      <div class="details">
+        <span>📅 2023</span>
+        <span>⏱️ 20.000 Km</span>
+      </div>
+      <p class="price">R$ 124.900</p>
+      <button class="offer-btn">Ver Detalhes</button>
+    </div>
+  </div>
+
+  <div class="car-card">
+    <div class="img-container">
+      <img src="../Images/Novo-Gol-2013-Bluemotion-traseira-2.jpg" alt="Gol G6">
+      <span class="badge">Seminovo</span>
+    </div>
+    <div class="car-info">
+      <h2>VOLKSWAGEN GOL G6</h2>
+      <p class="subtitle">1.6 Manual</p>
+      <div class="details">
+        <span>📅 2019</span>
+        <span>⏱️ 50.000 Km</span>
+      </div>
+      <p class="price">R$ 54.900</p>
+      <button class="offer-btn">Ver Detalhes</button>
+    </div>
+  </div>
+</div>
 
     <div class="social-float">
       <i class="fas fa-share-alt"></i>
@@ -162,6 +249,8 @@
     </footer>
     <script src="../JS/redesSociais.js"></script>
     <script src="../JS/home.js"></script>
+    <script src="../JS/avaliacao.js"></script>
+    
     <script>
   const iconePesquisa = document.querySelector(".icone-pesquisa");
   const barraPesquisa = document.querySelector(".barra-pesquisa");

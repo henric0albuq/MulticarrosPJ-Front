@@ -3,49 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Clientes</title>
-    <link rel="stylesheet" href="../Css/Clientes.css">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="../Css/estoque.css">
 </head>
 <body>
     <div class="header-left">
       <button class="btn-voltar" id="btnVoltar"><span>←</span> Voltar</button>
     </div>
+    
     <header>
-    <h1>Clientes</h1>
-    <button class="btn-novo" id="btnNovoCliente">+ Novo Cliente</button>
+    <h1>Estoque Veículos</h1>
+    <button class="btn-novo" id="btnNovoVeiculo">+ Novo Veículo</button>
   </header>
 
   <div class="container">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar cliente...">
+      <input type="text" id="searchInput" placeholder="Buscar veículo...">
     </div>
 
-    <table id="tabelaClientes">
+    <table id="tabelaVeiculo">
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Telefone</th>
-          <th>CPF</th>
-          <th>Carro Comprado</th>
+          <th>Modelo</th>
+          <th>Cor</th>
+          <th>Placa</th>
+          <th>Marca</th>
+          <th>Ano Fabricação</th>
+          <th>Ano Modelo</th>
           
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ana Paula Silva</td>
-          <td>ana@email.com</td>
-          <td>(11) 98765-4321</td>
-          <td>123.456.789-00</td>
-          <td>Honda Civic</td>
+          <td>Onix</td>
+          <td>Preto</td>
+          <td>ASG1548</td>
+          <td>Chevrolet</td>
+          <td>2024</td>
+          <td>2025</td>
           
         </tr>
         <tr>
-          <td>Carlos Santos</td>
-          <td>carlos@email.com</td>
-          <td>(11) 98765-4322</td>
-          <td>987.654.321-00</td>
-          <td>Chevrolet Onix</td>
+          <td>Argo</td>
+          <td>Branco</td>
+          <td>GTX5433</td>
+          <td>FIAT</td>
+          <td>2023</td>
+          <td>2023</td>
           
         </tr>
       </tbody>
@@ -53,9 +57,9 @@
   </div>
 
   <!-- Modal de cadastro -->
-  <div class="modal" id="modalCliente">
+  <div class="modal" id="modalVeiculo">
     <div class="modal-content">
-      <h2>Novo Cliente</h2>
+      <h2>Novo Veículo</h2>
       <input type="text" id="nome" placeholder="Nome completo" />
       <input type="email" id="email" placeholder="Email" />
       <input type="text" id="telefone" placeholder="Telefone" />
@@ -68,6 +72,6 @@
       </div>
     </div>
   </div>
-  <script src="../JS/Clientes.js"></script>
+  <script src="../JS/estoque.js"></script>
 </body>
 </html>

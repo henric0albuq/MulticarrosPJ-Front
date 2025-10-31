@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Area do Cliente</title>
     <link rel="stylesheet" href="../Css/dashboardCliente.css" />
+    <link rel="stylesheet" href="../Css/meusDados.css">
   </head>
   <body>
     <div id="sidebar" class="sidebar">
       <div class="logo">Painel do Cliente</div>
       <nav>
         <ul>
-          <li class="menu-item active" data-section="veiculos">
+          <li class="menu-item" data-section="veiculos">
             <span>🚗</span> Meus Veículos
           </li>
           <li class="menu-item" data-section="dados">
@@ -31,24 +32,53 @@
       <!-- Meus Veículos -->
       <section id="veiculosSection">
         <h2>Meus Veículos</h2>
-        <div id="meusVeiculosLista"></div>
+        <div id="meusVeiculosLista">
+      <!-- Veículos serão carregados aqui dinamicamente -->
+        </div>
       </section>
       <!-- Meus Dados -->
       <section id="dadosSection" class="hide">
         <h2>Meus Dados</h2>
-        <form id="dadosForm" style="max-width: 400px">
-          <label>Nome Completo</label>
-          <input id="d_nome" required />
-          <label>Email</label>
-          <input id="d_email" type="email" required />
-          <label>Telefone</label>
-          <input id="d_telefone" required />
-          <label>CPF</label>
-          <input id="d_cpf" required />
-          <label>Data de Nascimento</label>
-          <input id="d_nasc" type="date" required />
-          <button class="btn primary" id="salvarDados">Salvar Dados</button>
-        </form>
+       
+    <div class="card-dados">
+      <div class="linha">
+        <p><strong>Nome:</strong> <span id="nomeCliente">José Alves</span></p>
+        <p><strong>Telefone:</strong> <span id="telefoneCliente">(61) 99999-9999</span></p>
+      </div>
+
+      <div class="linha">
+        <p><strong>Email:</strong> <span id="emailCliente">jose@email.com</span></p>
+        <p><strong>CPF:</strong> <span id="cpfCliente">123.456.789-00</span></p>
+      </div>
+
+      <div class="linha">
+        <p><strong>Data de Nascimento:</strong> <span id="nascimentoCliente">12/03/1988</span></p>
+        <p><strong>Senha:</strong> <span id="senhaCliente">********</span></p>
+      </div>
+
+      <button id="btnEditar">✏️ Editar Dados</button>
+    </div>
+
+    <!-- CARD DE EDIÇÃO (POPUP) -->
+    <div class="popup-editar" id="popupEditar">
+      <div class="popup-conteudo">
+        <h2>Editar Dados</h2>
+        <label>Telefone</label>
+        <input type="text" id="editTelefone" placeholder="(61) 99999-9999">
+
+        <label>Email</label>
+        <input type="email" id="editEmail" placeholder="exemplo@email.com">
+
+        <label>Senha</label>
+        <input type="password" id="editSenha" placeholder="Nova senha">
+
+        <div class="botoes-popup">
+          <button id="salvarEdicao">Salvar</button>
+          <button id="fecharPopup">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </main>
       </section>
       <!-- Financeiro -->
       <section id="financeiroSection" class="hide">
@@ -74,5 +104,47 @@
       <div class="muted">© 2025 </div>
     </footer>
     <script src="dashboardCliente.js"></script>
+    <script>
+  // Seleciona todos os itens do menu
+  const menuItems = document.querySelectorAll('.menu-item');
+  const sections = document.querySelectorAll('section');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove classe ativa de todos
+      menuItems.forEach(i => i.classList.remove('active'));
+
+      // Adiciona classe ativa ao item clicado
+      item.classList.add('active');
+
+      // Esconde todas as seções
+      sections.forEach(sec => sec.classList.add('hide'));
+
+      // Mostra a seção correspondente
+      const sectionToShow = document.getElementById(item.dataset.section + 'Section');
+      if (sectionToShow) sectionToShow.classList.remove('hide');
+    });
+  });
+</script>
+
+<script>
+const btnEditar = document.getElementById('btnEditar');
+const popup = document.getElementById('popupEditar');
+const fecharPopup = document.getElementById('fecharPopup');
+
+if (btnEditar) {
+  btnEditar.addEventListener('click', () => popup.style.display = 'flex');
+}
+
+if (fecharPopup) {
+  fecharPopup.addEventListener('click', () => popup.style.display = 'none');
+}
+
+popup?.addEventListener('click', e => {
+  if (e.target === popup) popup.style.display = 'none';
+});
+</script>
+
+
   </body>
 </html>
