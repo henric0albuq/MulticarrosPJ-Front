@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financiamento</title>
+    <link rel="stylesheet" href="../Css/financiamento.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+  href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap"
+  rel="stylesheet"
+/>
+  </head>
+  <body>
+    <!-- IMPORTA O TOPO -->
+    <header class="topo">
+      <div class="topo-info">
+        
+        </div>
+      <div class="topo-logo">
+        <img src="../Images/multilogo.png" alt="Logo Multicarros" />
+      </div>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="financiamento.html">Financiamento</a>
+        <a href="sobreEmpresa.html">Sobre a Empresa</a>
+        <a href="contato.html">Contato</a>
+        <a href="login.html">LOGIN</a>
+         
+      </nav>
+    </header>
+        <br>
+        <br>
+        <br>
+<!-- Adicione logo abaixo do header/topo -->
+<!-- BENEFÍCIOS / RECURSOS (icone + título + legenda) -->
+<section class="financiamento-benefits">
+  <div class="benefits-container">
+    <div class="benefit">
+      <div class="benefit-icon"><i class="fa-solid fa-calculator"></i></div>
+      <h4>Simulação Gratuita</h4>
+      <p>Calcule suas parcelas sem compromisso</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon"><i class="fa-regular fa-clock"></i></div>
+      <h4>Aprovação Rápida</h4>
+      <p>Resposta em até 24 horas</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon"><i class="fa-regular fa-file-lines"></i></div>
+      <h4>Documentação Simples</h4>
+      <p>Processo descomplicado e transparente</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+      <h4>Melhores Taxas</h4>
+      <p>Condições especiais negociadas</p>
+    </div>
+  </div>
+</section>
+
+<h2><i class="fa-solid fa-handshake" style="color:#24aa4c;"></i> Aprove seu Financiamento Online!</h2>
+
+    <!-- FORMULÁRIO -->
+
+<form class="form-multibox">
+  <div class="form-section">
+    <fieldset>
+      <legend>Dados do Cliente</legend>
+      <label>Nome:</label>
+      <input type="text" name="nome" required />
+
+      <label>Nome do Pai:</label>
+      <input type="text" name="nome_pai" />
+
+      <label>Nome da Mãe:</label>
+      <input type="text" name="nome_mae" />
+
+      <label>Endereço:</label>
+      <input type="text" name="endereco" />
+
+      <label>Número:</label>
+      <input type="text" name="numero" />
+
+      <label>Bairro:</label>
+      <input type="text" name="bairro" />
+
+      <label>Cidade:</label>
+      <input type="text" name="cidade" />
+
+      <label>CEP:</label>
+      <input type="text" name="cep" />
+
+      <label>Complemento:</label>
+      <input type="text" name="complemento" />
+
+      <label>Estado:</label>
+      <select name="estado" required>
+        <option value="">Selecione</option>
+        <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+        <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+        <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+        <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+        <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+        <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+        <option>SP</option><option>SE</option><option>TO</option>
+      </select>
+
+      <label>Tempo de Residência:</label>
+      <input type="text" name="tempo_residencia" />
+
+      <label>Estado Civil:</label>
+      <select name="estado_civil" required>
+        <option value="">Selecione</option>
+        <option>Solteiro(a)</option>
+        <option>Casado(a)</option>
+        <option>Divorciado(a)</option>
+        <option>Viúvo(a)</option>
+        <option>Separado(a)</option>
+        <option>União Estável</option>
+      </select>
+
+      <label>Sexo:</label>
+      <select name="sexo" required>
+        <option value="">Selecione</option>
+        <option>Feminino</option>
+        <option>Masculino</option>
+      </select>
+    </fieldset>
+  </div>
+
+  <div class="form-section">
+    <fieldset>
+      <legend>Dados do Veículo</legend>
+      <label>Marca:</label>
+      <input type="text" placeholder="Marca *" />
+      <label>Modelo:</label>
+      <input type="text" placeholder="Modelo *" />
+      <label>Ano:</label>
+      <input type="text" placeholder="Ano *" />
+      <label>Cor:</label>
+      <input type="text" placeholder="Cor *" />
+      <label>Valor do Veículo:</label>
+      <input type="text" placeholder="Valor do Veículo *" />
+      <label>Valor de Entrada:</label>
+      <input type="text" placeholder="Valor de Entrada *" />
+      <label>Quantidade de Parcelas:</label>
+      <input type="text" placeholder="Quantidade de Parcelas" />
+    </fieldset>
+  </div>
+
+  <div class="form-section">
+    <fieldset>
+      <legend>Dados Profissionais</legend>
+      <label>Local de Trabalho:</label>
+      <input type="text" name="local_trabalho" />
+
+      <label>Profissão:</label>
+      <input type="text" name="profissao" />
+
+      <label>CNPJ:</label>
+      <input type="text" name="cnpj" />
+
+      <label>Cargo/Função:</label>
+      <input type="text" name="cargo_funcao" />
+
+      <label>Renda:</label>
+      <input type="text" name="renda" />
+
+      <label>Tempo de Emprego:</label>
+      <input type="text" name="tempo_emprego" />
+
+      <label>Endereço:</label>
+      <input type="text" name="endereco_prof" />
+
+      <label>Número:</label>
+      <input type="text" name="numero_prof" />
+
+      <label>Bairro:</label>
+      <input type="text" name="bairro_prof" />
+
+      <label>Cidade:</label>
+      <input type="text" name="cidade_prof" />
+
+      <label>CEP:</label>
+      <input type="text" name="cep_prof" />
+
+      <label>Complemento:</label>
+      <input type="text" name="complemento_prof" />
+    </fieldset>
+  </div>
+
+  <div class="form-section">
+    <fieldset>
+      <legend>Dados Bancários</legend>
+      <label>Banco:</label>
+      <input type="text" name="banco" />
+
+      <label>Agência:</label>
+      <input type="text" name="agencia" />
+
+      <label>Conta:</label>
+      <input type="text" name="conta" />
+
+      <label>Tempo de Conta:</label>
+      <input type="text" name="tempo_conta" />
+    </fieldset>
+  </div>
+
+  <!-- Seção para anexar documentos -->
+  <div class="form-section">
+    <fieldset>
+      <legend>Anexar Documentos</legend>
+      <p class="upload-instruction">Anexe os documentos necessários (PDF, JPG, PNG.) Máx. 10 arquivos.</p>
+
+      <label for="file-upload" class="upload-label">Selecionar arquivos</label>
+      <input id="file-upload" class="file-input" type="file" name="documentos[]" multiple accept=".pdf,image/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+
+      <ul id="file-list" class="file-list" aria-live="polite"></ul>
+    </fieldset>
+  </div>
+
+</form>
+
+<div class="social-float">
+      <i class="fas fa-share-alt"></i>
+      <div class="social-popup">
+        <a
+          href="https://www.facebook.com/MCMULTICARROS/"
+          target="_blank"
+          class="social-link facebook"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/multicarrosveiculos/"
+          target="_blank"
+          class="social-link instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- WHATSAPP FIXO -->
+    <a href="https://wa.me/5561984000200" class="whatsapp" target="_blank"
+      >💬</a
+    >
+  </body>
+</html>
+
+<div class="documentos-requeridos">
+  <div class="documento">
+    <i class="fas fa-id-card fa-3x"></i>
+    <p>DOCUMENTOS NECESSÁRIOS PARA ENVIO!</p>
+    <br>
+    <br>
+    <p>(Carteira Nacional de Habilitação)</p>
+  </div>
+  <div class="documento">
+    <h3>Comprovante de Residência</h3>
+    <i class="fas fa-file-alt fa-3x"></i>
+    <p>(Conta de Água, Luz, Telefone, Cartão de Crédito)</p>
+  </div>
+  <div class="documento">
+    <h3>Comprovante de Renda</h3>
+    <i class="fas fa-address-card fa-3x"></i>
+    <p>(Contra-Cheque, Extrato Bancário últimos 90 dias, Imposto de Renda)</p>
+  </div>
+  <div style="text-align:center; margin-top:32px;">
+    <button type="submit">Enviar</button>
+  </div>
+</div>
+
+<!-- IMPORTA O RODAPÉ -->
+<footer class="rodape">
+     <div class="rodape-conteudo">
+        <!-- Coluna 1 -->
+        <div class="rodape-coluna">
+          <img
+            src="../Images/multilogo.png"
+            alt="Logo Multicarros"
+            class="rodape-logo"
+          />
+          <p>📍 QNE 7, Loja 19/20 , Taguatinga norte - Brasilia/DF</p>
+          <p>📞 (61) 3352-2619 | 📱 (61) 98400-0200</p>
+          <p>✉️ vendas@multicarros.com.br</p>
+        </div>
+
+        <div class="rodape-coluna">
+          <h4>Horário de Atendimento</h4>
+          <p>Segunda a Sexta: 8h - 18h</p>
+          <p>Sábado: 8h - 13h</p>
+          <p>Domingo: Fechado</p>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div class="rodape-coluna">
+          <h4>Links Rápidos</h4>
+          <a href="home.html">Home</a>
+          <a href="financiamento.html">Financiamento</a>
+          <a href="sobreEmpresa.html">Sobre a Empresa</a>
+          <a href="contato.html">Contato</a>
+        </div>
+
+        <!-- Coluna 3 -->
+        <div class="rodape-coluna">
+          <h4>Siga-nos</h4>
+          <a href="https://www.facebook.com/MCMULTICARROS/">🔗 Facebook</a>
+          <a href="https://www.instagram.com/multicarrosveiculos/">🔗 Instagram</a>
+          <a href="https://wa.me/55619840002200">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="rodape-bottom">
+        <p>© 2025 Multicarros. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="../JS/redesSociais.js"></script>
+    <script>
+      // Mostrar lista de arquivos selecionados e permitir remoção local
+      (function(){
+        const input = document.getElementById('file-upload');
+        const list = document.getElementById('file-list');
+        let filesArr = [];
+
+        function render() {
+          list.innerHTML = '';
+          filesArr.forEach((f, idx) => {
+            const li = document.createElement('li');
+            li.textContent = f.name;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'file-remove';
+            btn.textContent = 'Remover';
+            btn.addEventListener('click', () => {
+              filesArr.splice(idx,1);
+              updateInputFiles();
+              render();
+            });
+            li.appendChild(btn);
+            list.appendChild(li);
+          });
+        }
+
+        function updateInputFiles(){
+          // Cria um DataTransfer para atualizar o input.files
+          const dt = new DataTransfer();
+          filesArr.forEach(f => dt.items.add(f));
+          input.files = dt.files;
+        }
+
+        input && input.addEventListener('change', (e) => {
+          const selected = Array.from(e.target.files || []);
+          // concat mantendo limite de 10
+          filesArr = filesArr.concat(selected).slice(0,10);
+          updateInputFiles();
+          render();
+        });
+      })();
+    </script>
+  </body>
+</html>

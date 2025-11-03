@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletos</title>
+    <link rel="stylesheet" href="../Css/boleto.css">
+</head>
+<body>
+  <body class="auth-bg">
+    <a href="dashboard.html" class="btn-voltar-home" title="Voltar para Home">
+      <i class="fas fa-arrow-left"></i> ⬅
+    </a>
+    <section class="card glass form-boleto">
+  <h2>💲 Cadastro de Boleto</h2>
+  <form id="boletoForm">
+    <div class="form-row">
+      <label for="pagador">CPF do Pagador</label>
+      <input type="text" id="pagador" required placeholder="Ex: João Silva" />
+    </div>
+
+    <div class="form-row">
+      <label for="parcela">Parcela</label>
+      <input type="text" id="parcela" required placeholder="Ex: 3/6" />
+    </div>
+
+    <div class="form-row">
+      <label for="vencimento">Data de Vencimento</label>
+      <input type="date" id="vencimento" required />
+    </div>
+
+    <div class="form-row">
+      <label for="descricao">Descrição</label>
+      <textarea
+        id="descricao"
+        rows="3"
+        placeholder="Ex: Parcela 3/6 – Financiamento Corolla"
+      ></textarea>
+    </div>
+
+    <div class="form-row">
+      <label for="arquivo">Anexar Boleto (PDF) 📁</label>
+      <input type="file" id="arquivo" accept="application/pdf" required />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Cadastrar Boleto</button>
+    </div>
+  </form>
+
+  <div id="msgSucesso" class="alert success" style="display:none;">
+    ✅ Boleto cadastrado com sucesso!
+  </div>
+</section>
+<script src="../JS/boleto.js"></script>
+</body>
+</html>

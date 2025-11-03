@@ -1,0 +1,249 @@
+/* index-login.css */
+/* Variáveis */
+:root {
+    --bg: #ffffff;
+    --green-600: #2f8f4a;
+    --green-700: #256a38;
+    --muted: #6b6f72;
+    --card-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+body.auth-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background: linear-gradient(-45deg, #a8e063, #2d6115, #669b25, #56ab2f);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;  
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.auth-wrap {
+    width: 100%;
+    max-width: 980px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.auth-card {
+   .auth-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+    background: var(--bg);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.brand img {
+    height: 64px;
+    width: auto;
+    display: block;
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.form-row {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.form-row label {
+    font-size: 13px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-row input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #e6e9eb;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--green-600), var(--green-700));
+    color: #fafafa;
+    box-shadow: 0 6px 18px rgba(37,106,56,0.12);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn a:hover{
+    color: #8ef508;
+    transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(37, 106, 56, 0.25);
+}
+
+.muted {
+    color: var(--muted);
+    margin-top: 18px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #222;
+    font-weight: bold;
+}
+
+.btn-voltar-home {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  background: #22833d;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(19, 24, 48, 0.1);
+  
+  z-index: 10;
+}
+
+.btn-voltar-home:hover {
+  background: #2f8f4a;
+  color: #7dd806;
+}
+
+.btn-voltar-home i {
+  font-size: 1.1em;
+}
+
+.senha-container {
+  position: relative;
+}
+
+.toggle-senha {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.3s;
+}
+.toggle-senha:hover {
+  color: #24aa4c;
+}
+.toggle-senha i {
+  font-size: 1.1em;
+}
+
+.btn.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn.loading::after {
+  content: "";
+  margin-left: 8px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === PLACEHOLDER FLUTUANTE === */
+.input-container {
+  position: relative;
+  margin-top: 16px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 12px 10px;
+  border: 1px solid #e6e9eb;
+  border-radius: 10px;
+  font-size: 1em;
+  background: transparent;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-container label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: var(--muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: #fff;
+  padding: 0 6px;
+  transition: all 0.3s ease;
+}
+
+/* Quando o campo é focado ou tem valor */
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 0.8em;
+  color: var(--green-600);
+  background: #fff;
+}
+.input-container input:focus {
+  border-color: var(--green-600);
+  box-shadow: 0 0 6px rgba(47, 143, 74, 0.3);
+}
