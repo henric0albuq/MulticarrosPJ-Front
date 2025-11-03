@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Veículo</title>
+    <link rel="stylesheet" href="../Css/verDetalhes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+  <header class="topo">
+    <div class="topo-logo">
+      <img src="../Images/multilogo.png" alt="Logo Multicarros" />
+      <h2>Detalhes do Veículo</h2>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="detalhes-container">
+    <div class="galeria">
+      <img src="../Images/onix-plus-midnight-(22).webp" alt="Chevrolet Onix" class="foto-principal" id="fotoPrincipal">
+      <div class="miniaturas">
+        <img src="../Images/interna-onix.jpg" alt="Chevrolet Onix interior" onclick="mudarImagem(this)">
+        <img src="../Images/Onix -lateral.jpg" alt="Chevrolet Onix lateral" onclick="mudarImagem(this)">
+        <img src="../Images/Chevrolet-Onix-Sedan-frente.jpg" alt="Chevrolet Onix frente" onclick="mudarImagem(this)">
+        <img src="../Images/onix-plus-midnight-(22).webp" alt="Chevrolet Onix traseira" onclick="mudarImagem(this)">
+      </div>
+    </div>
+
+    <div class="info-veiculo">
+      <h1>Chevrolet Onix 1.0 Flex Manual</h1>
+      <p class="preco">R$ 82.900</p>
+
+      <table class="tabela-info">
+        <tr><td>Combustível</td><td>FLEX</td></tr>
+        <tr><td>Cor</td><td>Preto</td></tr>
+        <tr><td>Placa</td><td>T**-***6</td></tr>
+        <tr><td>KM</td><td>36.000</td></tr>
+        <tr><td>Ano Fabricação</td><td>2021</td></tr>
+        <tr><td>Ano Modelo</td><td>2022</td></tr>
+      </table>
+
+      <button class="btn-voltar" onclick="history.back()">⬅ Voltar</button>
+    </div>
+  </main>
+
+  <!-- BOTÃO WHATSAPP FIXO -->
+  <a href="https://wa.me/55619840002200?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Chevrolet%20Onix%201.0%20Flex%20Manual."
+     class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="../JS/verDetalhes.js"></script>
+</body>
+</html>

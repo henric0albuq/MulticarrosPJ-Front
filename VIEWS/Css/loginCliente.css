@@ -1,0 +1,149 @@
+/* index-login.css */
+/* Variáveis */
+:root {
+    --bg: #ffffff;
+    --green-600: #2f8f4a;
+    --green-700: #256a38;
+    --muted: #6b6f72;
+    --card-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+body.auth-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background: linear-gradient(180deg, #50b437, #3abb29);
+    color: #222;
+}
+
+.auth-wrap {
+    width: 100%;
+    max-width: 980px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.auth-card {
+    width: 420px;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,255,250,0.9));
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.brand img {
+    height: 64px;
+    width: auto;
+    display: block;
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.form-row {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.form-row label {
+    font-size: 13px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-row input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #e6e9eb;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--green-600), var(--green-700));
+    color: #fafafa;
+    box-shadow: 0 6px 18px rgba(37,106,56,0.12);
+}
+
+.btn a:hover{
+    color: #8ef508;
+}
+
+.muted {
+    color: var(--muted);
+    margin-top: 18px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #222;
+    font-weight: bold;
+}
+
+.btn-voltar-home {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  background: #22833d;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(19, 24, 48, 0.1);
+  
+  z-index: 10;
+}
+
+.btn-voltar-home:hover {
+  background: #2f8f4a;
+  color: #7dd806;
+}
+
+.btn-voltar-home i {
+  font-size: 1.1em;
+}
+
+
