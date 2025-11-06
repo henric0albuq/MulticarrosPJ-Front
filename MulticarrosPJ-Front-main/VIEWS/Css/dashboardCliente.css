@@ -287,3 +287,141 @@ label {
 .hide {
   display: none;
 }
+
+/* ========================================
+   RESPONSIVIDADE - MOBILE FIRST
+   ======================================== */
+
+/* Tablets e telas médias (max-width: 768px) */
+@media (max-width: 768px) {
+  
+  /* Cards e containers */
+  .card-cadastro,
+  .contato-container,
+  .sobre-container {
+    margin: 16px;
+    padding: 20px 16px;
+    max-width: 100%;
+  }
+
+  /* Formulários */
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  /* Botões */
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-actions button,
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  /* Tabelas */
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+
+  /* Navegação */
+  .topo-logo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  /* Menu hamburguer (se necessário) */
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+}
+
+/* Smartphones (max-width: 480px) */
+@media (max-width: 480px) {
+  
+  /* Tipografia */
+  h1, .card-titulo {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  /* Inputs e botões menores */
+  input, select, textarea, button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Cards ainda mais compactos */
+  .card-cadastro,
+  .contato-container {
+    margin: 8px;
+    padding: 16px 12px;
+  }
+
+  /* Botões empilhados */
+  .btn-voltar-home {
+    position: static;
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+
+  /* Grid de carros */
+  .carros-container {
+    grid-template-columns: 1fr;
+    padding: 0 8px;
+  }
+
+  .car-card {
+    width: 100%;
+  }
+}
+
+/* Telas grandes (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .card-cadastro,
+  .contato-container {
+    max-width: 600px;
+  }
+}
+
+/* Orientação landscape em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .card-cadastro {
+    margin: 10px auto;
+    padding: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 8px;
+  }
+}

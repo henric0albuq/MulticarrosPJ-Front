@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análise de Crédito</title>
+    <link rel="stylesheet" href="../Css/analiseCredito.css" />
+  </head>
+  <body class="auth-bg">
+    <a href="dashboard.html" class="btn-voltar-home" title="Voltar para Home">
+      <i class="fas fa-arrow-left"></i> ⬅
+    </a>
+    <div class="card-cadastro">
+      <h2 class="card-titulo">Análise 💳</h2>
+
+      <!-- ==== ADICIONEI UM ID NO FORM ==== -->
+      <form id="formAnaliseCredito">
+        <div class="form-group">
+          <label>Nome</label>
+          <input id="nome" type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label>CPF</label>
+          <input id="cpf" type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label>Data de Nascimento</label>
+          <input id="dataNascimento" type="date" required />
+        </div>
+
+        <div class="form-group">
+          <label>Carro de Interesse</label>
+          <input id="modeloCarro" type="text" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Salvar</button>
+          <button type="button" class="btn ghost">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ==== SCRIPT QUE ENVIA PARA O N8N ==== -->
+    <script>
+      document
+        .getElementById("formAnaliseCredito")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // evita reload da página
+
+          const payload = {
+            nome: document.getElementById("nome").value,
+            cpf: document.getElementById("cpf").value,
+            dataNascimento: document.getElementById("dataNascimento").value,
+            modeloCarro: document.getElementById("modeloCarro").value,
+          };
+
+          try {
+            const response = await fetch(
+              "https://n8nwebhook.n8ntechost.shop/webhook/analise",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+              }
+            );
+
+            const result = await response.json();
+            alert("Formulário enviado com sucesso!");
+            console.log("Resposta do n8n:", result);
+          } catch (error) {
+            console.error("Erro ao enviar formulário:", error);
+            alert("Erro ao enviar, tente novamente.");
+          }
+        });
+    </script>
+
+    <script>
+      document
+        .getElementById("formAnaliseCredito")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const nome = document.getElementById("nome").value.trim();
+          const cpf = document.getElementById("cpf").value.trim();
+          const dataNascimento =
+            document.getElementById("dataNascimento").value;
+          const modeloCarro = document
+            .getElementById("modeloCarro")
+            .value.trim();
+
+          // ==== VERIFICAÇÃO DE IDADE ====
+          const dataNasc = new Date(dataNascimento);
+          const hoje = new Date();
+
+          let idade = hoje.getFullYear() - dataNasc.getFullYear();
+          const m = hoje.getMonth() - dataNasc.getMonth();
+          if (m < 0 || (m === 0 && hoje.getDate() < dataNasc.getDate())) {
+            idade--;
+          }
+
+          if (idade < 18) {
+            alert(
+              "⚠ É necessário ter 18 anos ou mais para realizar a análise de crédito."
+            );
+            return; // impede o envio do formulário
+          }
+
+          const payload = { nome, cpf, dataNascimento, modeloCarro };
+
+          try {
+            const response = await fetch(
+              "https://n8nwebhook.n8ntechost.shop/webhook/analise",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+              }
+            );
+
+            const result = await response.json();
+            alert("✅ Formulário enviado com sucesso!");
+            console.log("Resposta do n8n:", result);
+          } catch (error) {
+            console.error("Erro ao enviar formulário:", error);
+            alert("❌ Erro ao enviar, tente novamente.");
+          }
+        });
+    </script>
+  </body>
+</html>
