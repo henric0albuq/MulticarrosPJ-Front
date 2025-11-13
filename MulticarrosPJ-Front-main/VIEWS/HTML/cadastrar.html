@@ -85,8 +85,11 @@
             <input type="text" required />
           </div>
         <div class="form-group">
-          <label>Foto </label>
-          <input type="file" accept="image/*" />
+          <label for="fotoInput">Foto</label>
+          <input id="fotoInput" type="file" accept="image/*" capture="environment" />
+          <div class="foto-preview" aria-hidden="true">
+            <img id="fotoPreview" alt="Pré-visualização da foto" />
+          </div>
         </div>
         <div class="form-group">
           <label>Descrição</label>
@@ -99,6 +102,60 @@
       </form>
     </div>
 
-    
+    <script>
+      (function () {
+        const fotoInput = document.getElementById('fotoInput');
+        const fotoPreview = document.getElementById('fotoPreview');
+        const fotoLabel = document.querySelector('label[for="fotoInput"]');
+
+        if (!fotoInput) return;
+
+        // Ensure attributes are present (some browsers ignore HTML attr in older pages)
+        fotoInput.setAttribute('accept', 'image/*');
+        fotoInput.setAttribute('capture', 'environment');
+
+        // When user selects or takes a photo, show preview and store base64 in a hidden field
+        fotoInput.addEventListener('change', function (e) {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+
+          // Create object URL for preview
+          const url = URL.createObjectURL(file);
+          fotoPreview.src = url;
+          fotoPreview.style.display = 'block';
+          fotoPreview.alt = 'Foto selecionada';
+          if (fotoLabel) fotoLabel.textContent = 'Foto (pronto)';
+
+          // Also store as data URL so it can be submitted with the form if desired
+          const reader = new FileReader();
+          reader.onload = function () {
+            let hidden = document.getElementById('fotoData');
+            if (!hidden) {
+              hidden = document.createElement('input');
+              hidden.type = 'hidden';
+              hidden.name = 'fotoData';
+              hidden.id = 'fotoData';
+              document.querySelector('form').appendChild(hidden);
+            }
+            hidden.value = reader.result; // base64 data URL
+          };
+          reader.readAsDataURL(file);
+        });
+
+        // Clicking the label or preview opens the camera/file picker
+        if (fotoLabel) {
+          fotoLabel.style.cursor = 'pointer';
+          fotoLabel.addEventListener('click', function () {
+            fotoInput.click();
+          });
+        }
+        if (fotoPreview) {
+          fotoPreview.style.cursor = 'pointer';
+          fotoPreview.addEventListener('click', function () {
+            fotoInput.click();
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

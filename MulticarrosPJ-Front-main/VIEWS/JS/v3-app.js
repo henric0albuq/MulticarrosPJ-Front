@@ -312,4 +312,85 @@
   // init render
   document.addEventListener('DOMContentLoaded', function(){ renderTable(); });
 })();
+
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
+    // If there's no #sidebarToggle element in the markup, inject a simple
+    // hamburger button into the `.topbar` so mobile users can open the drawer.
+    function ensureHamburger() {
+        const topbar = document.body.querySelector('.topbar');
+        if (!topbar) return;
+
+        let btn = document.getElementById('sidebarToggle');
+        if (btn) return; // already exists
+
+        btn = document.createElement('button');
+        btn.id = 'sidebarToggle';
+        btn.className = 'hamburger-btn';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Abrir menu');
+        btn.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+
+        // Prefer to place the hamburger next to the search input if present
+        const search = topbar.querySelector('.search');
+        if (search && search.parentNode) {
+            // insert before the search element so it appears left of the search box
+            search.parentNode.insertBefore(btn, search);
+        } else {
+            topbar.insertBefore(btn, topbar.firstChild);
+        }
+
+        // Add backdrop element
+        if (!document.getElementById('sidebarBackdrop')) {
+            const backdrop = document.createElement('div');
+            backdrop.id = 'sidebarBackdrop';
+            document.body.appendChild(backdrop);
+            backdrop.addEventListener('click', () => {
+                document.body.classList.remove('sb-sidenav-toggled');
+            });
+        }
+
+        // Wire the button to toggle the body class used by CSS
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+        });
+
+        // Close sidebar when a menu link is clicked (better UX on mobile)
+        const menu = document.getElementById('menu');
+        if (menu) {
+            menu.addEventListener('click', (ev) => {
+                const target = ev.target.closest('a');
+                if (target) {
+                    // small delay so navigation feels natural (if link navigates)
+                    document.body.classList.remove('sb-sidenav-toggled');
+                }
+            });
+        }
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') document.body.classList.remove('sb-sidenav-toggled');
+        });
+    }
+
+    ensureHamburger();
+
+});
+
+
      

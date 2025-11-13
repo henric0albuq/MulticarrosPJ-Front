@@ -4,33 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multicarros Home</title>
+    <link rel="stylesheet" href="../Css/responsive.css" />
     <link rel="stylesheet" href="../Css/home.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link
-  href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap"
-  rel="stylesheet"
-/>
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- TOPO FIXO -->
     <header class="topo">
-        </div>
-      </div>
       <div class="topo-logo">
         <img src="../Images/multilogo.png" alt="Logo Multicarros" />
-        
-        <div class="barra-pesquisa-container">
-  <i class="fa-solid fa-magnifying-glass icone-pesquisa"></i>
-  <input
-    type="text"
-    class="barra-pesquisa"
-    placeholder="Buscar veículo..."
-  />
-</div>
+      </div>
 
+      <!-- barra de pesquisa centralizada acima do menu -->
+      <div class="topo-search">
+        <div class="barra-pesquisa-container">
+          <i class="fa-solid fa-magnifying-glass icone-pesquisa"></i>
+          <input
+            type="text"
+            class="barra-pesquisa"
+            placeholder="Buscar veículo..."
+          />
+        </div>
       </div>
       <nav>
         <a href="home.html">Home</a>
@@ -38,7 +39,6 @@
         <a href="sobreEmpresa.html">Sobre a Empresa</a>
         <a href="contato.html">Contato</a>
         <a href="login.html">LOGIN</a>
-        
       </nav>
     </header>
 
@@ -52,133 +52,134 @@
         negócios.
       </p>
       <br />
+
+      <!-- Botões do banner (marcas + ação) -->
       <div class="banner-botoes">
-        <!-- BOTÃO POPUP DE AVALIAÇÃO -->
-<div class="avaliacao-popup">
-  <button id="btnAvaliacao">⭐ Está gostando da Multicarros?</button>
-  <div id="popupAvaliacao" class="popup-avaliacao">
-    <p>Nos conte o que está achando:</p>
-    <div class="emoji-container">
-      <span class="emoji" data-feedback="😡">😡</span>
-      <span class="emoji" data-feedback="😕">😕</span>
-      <span class="emoji" data-feedback="😐">😐</span>
-      <span class="emoji" data-feedback="😊">😊</span>
-      <span class="emoji" data-feedback="😍">😍</span>
-    </div>
-    <p id="mensagemAvaliacao" class="mensagem-avaliacao"></p>
-  </div>
-</div>
+        <!-- Botão interativo de marcas -->
+        <div class="marcas-container">
+          <button id="btnMarcas" class="btn-marcas">
+            <i class="fa-solid fa-car"></i> Nossos Modelos
+            <i class="fa-solid fa-chevron-down seta"></i>
+          </button>
+          <ul id="listaMarcas" class="lista-marcas-animada">
+            <li><a href="#">Audi</a></li>
+            <li><a href="#">BMW</a></li>
+            <li><a href="#">Chevrolet</a></li>
+            <li><a href="#">Fiat</a></li>
+            <li><a href="#">Ford</a></li>
+            <li><a href="#">Honda</a></li>
+            <li><a href="#">Jeep</a></li>
+            <li><a href="#">Peugeot</a></li>
+            <li><a href="#">Renault</a></li>
+            <li><a href="#">Subaru</a></li>
+            <li><a href="#">Toyota</a></li>
+            <li><a href="#">Volkswagen</a></li>
+          </ul>
+        </div>
 
-  <!-- Botão interativo de marcas -->
-  <div class="marcas-container">
-    <button id="btnMarcas" class="btn-marcas">
-      <i class="fa-solid fa-car"></i> Nossos Modelos
-      <i class="fa-solid fa-chevron-down seta"></i>
-    </button>
-    <ul id="listaMarcas" class="lista-marcas-animada">
-      <li><a href="#">Audi</a></li>
-      <li><a href="#">BMW</a></li>
-      <li><a href="#">Chevrolet</a></li>
-      <li><a href="#">Fiat</a></li>
-      <li><a href="#">Ford</a></li>
-      <li><a href="#">Honda</a></li>
-      <li><a href="#">Jeep</a></li>
-      <li><a href="#">Peugeot</a></li>
-      <li><a href="#">Renault</a></li>
-      <li><a href="#">Subaru</a></li>
-      <li><a href="#">Toyota</a></li>
-      <li><a href="#">Volkswagen</a></li>
-    </ul>
-  </div>
-
-  <a
-    href="https://www.google.com/maps/place/Multicarros/@-15.811896,-48.064726,15z/data=!4m6!3m5!1s0x935a333c90e88e27:0x83aa09beb7b37e9d!8m2!3d-15.811896!4d-48.064726!16s%2Fg%2F1yh8072l_?entry=ttu"
-    class="btn"
-    >Onde Estamos</a
-  >
-</div>
-
+        <a
+          href="https://www.google.com/maps/place/Multicarros/@-15.811896,-48.064726,15z/data=!4m6!3m5!1s0x935a333c90e88e27:0x83aa09beb7b37e9d!8m2!3d-15.811896!4d-48.064726!16s%2Fg%2F1yh8072l_?entry=ttu"
+          class="btn"
+          >Onde Estamos</a
+        >
+      </div>
     </section>
 
     <!-- CARROS -->
-    <h2><i class="fa-solid fa-star" style="color:#24aa4c;"></i> Carros em Destaque</h2>
-<div class="carros-container">
-  <div class="car-card">
-    <div class="img-container">
-      <img src="../Images/onix-plus-midnight-(22).webp" alt="Chevrolet Onix">
-      <span class="badge">Chegou!</span>
-    </div>
-    <div class="car-info">
-      <h2>CHEVROLET ONIX</h2>
-      <p class="subtitle">1.0 Flex Manual</p>
-      <div class="details">
-        <span>📅 2022</span>
-        <span>⏱️ 36.000 Km</span>
+    <h2>
+      <i class="fa-solid fa-star" style="color: #24aa4c"></i> Carros em Destaque
+    </h2>
+    <div class="carros-container">
+      <div class="car-card">
+        <div class="img-container">
+          <img
+            src="../Images/onix-plus-midnight-(22).webp"
+            alt="Chevrolet Onix"
+          />
+          <span class="badge">Chegou!</span>
+        </div>
+        <div class="car-info">
+          <h2>CHEVROLET ONIX</h2>
+          <p class="subtitle">1.0 Flex Manual</p>
+          <div class="details">
+            <span>📅 2022</span>
+            <span>⏱️ 36.000 Km</span>
+          </div>
+          <p class="price">R$ 82.900</p>
+          <button
+            class="offer-btn"
+            onclick="window.location.href='verDetalhes.html'"
+          >
+            Ver Detalhes
+          </button>
+        </div>
       </div>
-      <p class="price">R$ 82.900</p>
-      <button class="offer-btn" onclick="window.location.href='verDetalhes.html'">
-  Ver Detalhes
-</button>
-    </div>
-  </div>
- <!-- 🔹 fechamento da seção de destaque -->
+      <!-- 🔹 fechamento da seção de destaque -->
 
-<div class="car-card">
-    <div class="img-container">
-      <img src="../Images/Corolla1.jpg" alt="Toyota Corolla XEI">
-      <span class="badge">Chegou!</span>
-    </div>
-    <div class="car-info">
-      <h2>Toyota Corolla XEI</h2>
-      <p class="subtitle">2.0 Flex Automático</p>
-      <div class="details">
-        <span>📅 2023</span>
-        <span>⏱️ 71.000 Km</span>
+      <div class="car-card">
+        <div class="img-container">
+          <img src="../Images/Corolla1.jpg" alt="Toyota Corolla XEI" />
+          <span class="badge">Chegou!</span>
+        </div>
+        <div class="car-info">
+          <h2>Toyota Corolla XEI</h2>
+          <p class="subtitle">2.0 Flex Automático</p>
+          <div class="details">
+            <span>📅 2023</span>
+            <span>⏱️ 71.000 Km</span>
+          </div>
+          <p class="price">R$ 134.000</p>
+          <button class="offer-btn">Ver Detalhes</button>
+        </div>
       </div>
-      <p class="price">R$ 134.000</p>
-      <button class="offer-btn">Ver Detalhes</button>
     </div>
-  </div>
-</div>
     <!-- 🔹 fechamento da seção de destaque -->
 
     <!-- ESTOQUE DE CARROS -->
-<h2><i class="fa-solid fa-car" style="color:#24aa4c;"></i> Veículos em Estoque</h2>
-<div class="carros-container">
-  <div class="car-card">
-    <div class="img-container">
-      <img src="../Images/bcad5924b5c214c0faf52777d41c80c1.jpg" alt="Honda Civic">
-      <span class="badge">Seminovo</span>
-    </div>
-    <div class="car-info">
-      <h2>HONDA CIVIC</h2>
-      <p class="subtitle">2.0 Sport CVT</p>
-      <div class="details">
-        <span>📅 2023</span>
-        <span>⏱️ 20.000 Km</span>
+    <h2>
+      <i class="fa-solid fa-car" style="color: #24aa4c"></i> Veículos em Estoque
+    </h2>
+    <div class="carros-container">
+      <div class="car-card">
+        <div class="img-container">
+          <img
+            src="../Images/bcad5924b5c214c0faf52777d41c80c1.jpg"
+            alt="Honda Civic"
+          />
+          <span class="badge">Seminovo</span>
+        </div>
+        <div class="car-info">
+          <h2>HONDA CIVIC</h2>
+          <p class="subtitle">2.0 Sport CVT</p>
+          <div class="details">
+            <span>📅 2023</span>
+            <span>⏱️ 20.000 Km</span>
+          </div>
+          <p class="price">R$ 124.900</p>
+          <button class="offer-btn">Ver Detalhes</button>
+        </div>
       </div>
-      <p class="price">R$ 124.900</p>
-      <button class="offer-btn">Ver Detalhes</button>
-    </div>
-  </div>
 
-  <div class="car-card">
-    <div class="img-container">
-      <img src="../Images/Novo-Gol-2013-Bluemotion-traseira-2.jpg" alt="Gol G6">
-      <span class="badge">Seminovo</span>
-    </div>
-    <div class="car-info">
-      <h2>VOLKSWAGEN GOL G6</h2>
-      <p class="subtitle">1.6 Manual</p>
-      <div class="details">
-        <span>📅 2019</span>
-        <span>⏱️ 50.000 Km</span>
+      <div class="car-card">
+        <div class="img-container">
+          <img
+            src="../Images/Novo-Gol-2013-Bluemotion-traseira-2.jpg"
+            alt="Gol G6"
+          />
+          <span class="badge">Seminovo</span>
+        </div>
+        <div class="car-info">
+          <h2>VOLKSWAGEN GOL G6</h2>
+          <p class="subtitle">1.6 Manual</p>
+          <div class="details">
+            <span>📅 2019</span>
+            <span>⏱️ 50.000 Km</span>
+          </div>
+          <p class="price">R$ 54.900</p>
+          <button class="offer-btn">Ver Detalhes</button>
+        </div>
       </div>
-      <p class="price">R$ 54.900</p>
-      <button class="offer-btn">Ver Detalhes</button>
     </div>
-  </div>
-</div>
 
     <div class="social-float">
       <i class="fas fa-share-alt"></i>
@@ -206,42 +207,58 @@
     >
 
     <section class="vantagens">
-  <h2>Por que escolher a <span>Multicarros</span>?</h2>
-  <div class="vantagens-container">
-    <div class="vantagem-card">
-      <i class="fa-solid fa-car"></i>
-      <h3>Veículos Inspecionados</h3>
-      <p>Todos os nossos carros passam por uma rigorosa avaliação mecânica e de procedência.</p>
-    </div>
-    <div class="vantagem-card">
-      <i class="fa-solid fa-money-bill-wave"></i>
-      <h3>Melhor Avaliação</h3>
-      <p>Oferecemos o melhor preço do mercado e condições de pagamento acessíveis.</p>
-    </div>
-    <div class="vantagem-card">
-      <i class="fa-solid fa-handshake"></i>
-      <h3>Confiança e Garantia</h3>
-      <p>Com anos de experiência, garantimos transparência e confiança em cada negociação.</p>
-    </div>
-    <div class="vantagem-card">
-      <i class="fa-solid fa-users"></i>
-      <h3>Atendimento Personalizado</h3>
-      <p>Nosso time está pronto para te atender, além do nosso Atendimento 24H.</p>
-    </div>
-  </div>
-</section>
-
-<section class="mapa">
-  <h2>📍 Encontre a Multicarros !</h2>
-  <p>Venha nos visitar e faça um test drive!</p>
-  <div class="mapa-container">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.398295547115!2d-48.0669156!3d-15.811891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a333c90e88e27%3A0x83aa09beb7b37e9d!2sMulticarros!5e0!3m2!1spt-BR!2sbr!4v1698798920146!5m2!1spt-BR!2sbr" 
-      width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </div>
-</section>
-
+      <h2>Por que escolher a <span>Multicarros</span>?</h2>
+      <div class="vantagens-container">
+        <div class="vantagem-card">
+          <i class="fa-solid fa-car"></i>
+          <h3>Veículos Inspecionados</h3>
+          <p>
+            Todos os nossos carros passam por uma rigorosa avaliação mecânica e
+            de procedência.
+          </p>
+        </div>
+        <div class="vantagem-card">
+          <i class="fa-solid fa-money-bill-wave"></i>
+          <h3>Melhor Avaliação</h3>
+          <p>
+            Oferecemos o melhor preço do mercado e condições de pagamento
+            acessíveis.
+          </p>
+        </div>
+        <div class="vantagem-card">
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Confiança e Garantia</h3>
+          <p>
+            Com anos de experiência, garantimos transparência e confiança em
+            cada negociação.
+          </p>
+        </div>
+        <div class="vantagem-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>Atendimento Personalizado</h3>
+          <p>
+            Nosso time está pronto para te atender, além do nosso Atendimento
+            24H.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mapa">
+      <h2>📍 Encontre a Multicarros !</h2>
+      <p>Venha nos visitar e faça um test drive!</p>
+      <div class="mapa-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.398295547115!2d-48.0669156!3d-15.811891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a333c90e88e27%3A0x83aa09beb7b37e9d!2sMulticarros!5e0!3m2!1spt-BR!2sbr!4v1698798920146!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </section>
 
     <!-- RODAPÉ -->
     <footer class="rodape">
@@ -292,16 +309,15 @@
     <script src="../JS/redesSociais.js"></script>
     <script src="../JS/home.js"></script>
     <script src="../JS/avaliacao.js"></script>
-    
+
     <script>
-  const iconePesquisa = document.querySelector(".icone-pesquisa");
-  const barraPesquisa = document.querySelector(".barra-pesquisa");
+      const iconePesquisa = document.querySelector(".icone-pesquisa");
+      const barraPesquisa = document.querySelector(".barra-pesquisa");
 
-  barraPesquisa.addEventListener("focus", () => {
-    iconePesquisa.style.transform = "scale(1.2)";
-    setTimeout(() => (iconePesquisa.style.transform = "scale(1)"), 150);
-  });
-</script>
-
+      barraPesquisa.addEventListener("focus", () => {
+        iconePesquisa.style.transform = "scale(1.2)";
+        setTimeout(() => (iconePesquisa.style.transform = "scale(1)"), 150);
+      });
+    </script>
   </body>
 </html>

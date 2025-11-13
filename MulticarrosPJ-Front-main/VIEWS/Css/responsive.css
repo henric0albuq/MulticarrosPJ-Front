@@ -1,0 +1,41 @@
+/* Responsive helpers and root sizing
+   - Sets a scalable root font-size using clamp
+   - Defines spacing and color variables
+   - Utility classes for containers and images
+   - Meant to be included before page-specific CSS
+*/
+:root{
+  --color-primary: #24aa4c;
+  --color-dark: #1c1e26;
+  --max-width: 1200px;
+  /* altura estimada do header fixo — usada para empurrar o conteúdo abaixo dele */
+  --topo-height: clamp(3.5rem, 7vh, 5rem);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+}
+/* Responsive root font-size: 14px on small, up to 18px on large screens */
+html{font-size: clamp(14px, 1.6vw, 18px);} 
+/* Make rem predictable: 1rem ≈ base font-size */
+body{line-height:1.45;-webkit-font-smoothing:antialiased;padding-top:var(--topo-height);}
+/* Container utility */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+/* Images and iframes fluid */
+img, picture, video, iframe{max-width:100%;height:auto;display:block}
+/* Buttons default responsive padding */
+button, .btn{padding:calc(var(--spacing-sm));font-size:1rem}
+/* Small helpers */
+.text-center{text-align:center}
+.hide-mobile{display:block}
+@media (max-width:768px){.hide-mobile{display:none}}
+@media (max-width:992px){
+  /* header fica mais alto em telas menores (logo + nav em coluna) */
+  :root{--topo-height: 7rem}
+}
+@media (max-width:480px){
+  /* aumentar ainda mais para garantir espaçamento em celulares pequenos */
+  :root{--topo-height: 9.5rem}
+}
+/* Accessibility improvements */
+button:focus, a:focus{outline:3px solid rgba(36,170,76,0.25);outline-offset:2px}

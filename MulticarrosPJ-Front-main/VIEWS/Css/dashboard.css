@@ -30,7 +30,7 @@ body {
     position: fixed;
     left: 16px;
     top: 16px;
-    padding: 18px;
+    padding: 12px;
     border-radius: 16px;
     box-shadow: var(--card-shadow);
     background: linear-gradient(180deg, var(--green-700), var(--green-600));
@@ -99,6 +99,7 @@ body {
 .main {
     margin-left: 292px;
     padding: 24px;
+    padding-top: 40px; /* reserve space so content sits below topbar on desktop */
 }
 
 .topbar {
@@ -267,25 +268,6 @@ table img {
     margin-top: 12px;
 }
 
-.footer {
-    margin-top: auto;
-    padding: 20px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--card-shadow);
-    background: var(--glass);
-    position: fixed;
-    bottom: 0;
-    left: 292px;
-    right: 24px;
-}
-
-.footer-logo {
-    height: 32px;
-    margin-right: 8px;
-}
 
 .modal-backdrop {
     position: fixed;
@@ -342,32 +324,155 @@ table img {
 }
 
 @media (max-width: 1024px) {
+    /* Use a hidden sidebar drawer on medium and smaller screens and show a
+       hamburger toggle in the topbar. */
     .main {
         margin-left: 24px;
         padding: 18px;
+        margin-top: 112px; /* reserve more space for topbar + hamburger on small screens */
     }
+
+    /* Sidebar drawer (hidden by default) */
     .sidebar {
-        position: relative;
-        width: auto;
-        height: auto;
-        border-radius: 12px;
-        margin: 12px;
-    }
-    .topbar {
-        position: relative;
+        position: fixed;
+        left: 0;
         top: 0;
+        height: 100vh;
+        width: 260px;
+        max-width: 80%;
+        transform: translateX(-120%);
+        transition: transform 240ms ease-in-out;
+        z-index: 60;
+        background: linear-gradient(180deg, var(--green-700), var(--green-600));
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        border-radius: 0 12px 12px 0;
+        padding: 18px;
     }
+
+    /* When body has the toggle class, show the sidebar */
+    body.sb-sidenav-toggled .sidebar {
+        transform: translateX(0);
+    }
+
+    /* Backdrop to dim content when sidebar is open */
+    #sidebarBackdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.36);
+        z-index: 55;
+        display: none;
+    }
+
+    body.sb-sidenav-toggled #sidebarBackdrop {
+        display: block;
+    }
+
+    /* Ensure menu items are visible and scrollable inside the drawer */
+    .menu {
+        margin-top: 18px;
+        overflow-y: auto;
+        max-height: calc(100vh - 160px);
+        padding-right: 8px;
+    }
+
+    .menu-item {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 10px;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+
+    .menu-item .icon {
+        font-size: 18px;
+        width: 26px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Show labels when the drawer is open (desktop still shows labels) */
+    body.sb-sidenav-toggled .menu-item .label {
+        display: inline-block;
+    }
+
+    /* Slightly increase contrast for menu text */
+    .menu-item .label {
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    /* Hamburger button (injected by JS if not present) */
+    .hamburger-btn {
+        display: inline-flex; /* show hamburger on small screens */
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.06);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        gap: 4px;
+        padding: 6px;
+        margin-right: 10px;
+    }
+
+    .hamburger-btn .bar {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+    }
+
+    /* Ensure topbar sits above content and leaves space for hamburger */
+    .topbar {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        top: 12px;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
     .topbar .search input {
-        width: 220px;
+        width: 200px;
     }
+
     .cards-row {
         flex-direction: column;
     }
+
     .grid {
         flex-direction: column;
     }
+
     .table-card {
         min-width: 90%;
+    }
+
+    /* Footer offset to avoid overlapping fixed elements */
+    .footer {
+        left: 12px;
+        right: 12px;
+    }
+    .footer .muted {
+        /* slight upward shift to better align with the logo */
+        transform: translateY(-8px);
+        transition: transform 120ms ease;
+    }
+    /* also target the footer text span used in dashboard.html */
+    .footer .footer-left span {
+        display: inline-block;
+        transform: translateY(-8px);
+        transition: transform 120ms ease;
     }
 }
 
@@ -381,6 +486,88 @@ table img {
     padding: 32px 24px;
     margin: 0 auto;
     max-width: 600px;
+}
+
+/* Calendar card */
+.calendar-card {
+    max-width: 980px;
+    padding: 18px;
+    margin-top: 18px;
+}
+.calendar-card .card-header h3 {
+    margin: 0 0 6px 0;
+    color: #256a38;
+}
+.week-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+}
+.day-cell {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 90px;
+    box-shadow: 0 6px 16px rgba(15,23,42,0.06);
+    flex: 0 0 150px; /* fixed width per day so items fit inside the card */
+}
+.day-cell .day-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: #2f8f4a;
+    margin-bottom: 6px;
+}
+.event {
+    background: linear-gradient(90deg, #f0fff0, #e6fff0);
+    border-left: 3px solid #2a743b;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+.calendar-actions {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-start; /* align buttons inside the card */
+    gap: 12px; /* space between buttons */
+    align-items: center;
+    flex-wrap: wrap; /* allow buttons to wrap instead of overflowing */
+}
+
+/* make calendar action buttons a bit smaller */
+.calendar-actions .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 110px;
+}
+
+.calendar-actions .btn.primary {
+    min-width: 130px;
+}
+
+.calendar-actions .btn.ghost {
+    min-width: 100px;
+}
+
+/* Prevent visual overflow if button sizes are large */
+.calendar-card { overflow: hidden; }
+
+@media (max-width: 1024px) {
+    .calendar-card {
+        padding: 14px;
+    }
+    .day-cell { flex: 0 0 140px; }
+}
+
+@media (max-width: 768px) {
+    .day-cell { flex: 0 0 180px; }
+}
+
+@media (max-width: 420px) {
+    .day-cell { flex: 0 0 220px; }
 }
 
 .card.glass h3 {
@@ -478,7 +665,7 @@ textarea {
     
 }
 .btn.ghost:hover {
-    background-color: #c72e23;
+    background-color: #328d2f;
     color: #d8d4d4;
 }
 
@@ -562,21 +749,7 @@ textarea {
     font-size: 14px;
   }
 
-  /* Menu hamburguer (se necessário) */
-  .menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 10px;
-  }
-
-  .menu.active {
-    display: flex;
-  }
+    /* Menu hamburguer (se necessário) -- removed default hiding so drawer shows items */
 }
 
 /* Smartphones (max-width: 480px) */
