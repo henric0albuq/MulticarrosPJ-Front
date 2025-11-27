@@ -1,69 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meus Dados</title>
-    <link rel="stylesheet" href="../CSS/meusDados.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../CSS/meusDados.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- HEADER -->
-  <header class="topo">
-    <div class="topo-logo">
-      <img src="../Images/multilogo.png" alt="Logo Multicarros">
-      <h2>Área do Cliente</h2>
-    </div>
-  </header>
+    <header class="topo">
+      <div class="topo-logo">
+        <img src="../Images/multilogo.png" alt="Logo Multicarros" />
+        <h2>Área do Cliente</h2>
+      </div>
+    </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main class="dados-container">
-    <h1>👤 Meus Dados</h1>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="dados-container">
+      <h1>👤 Meus Dados</h1>
 
-    <div class="card-dados">
-      <div class="linha">
-        <p><strong>Nome:</strong> <span id="nomeCliente">José Alves</span></p>
-        <p><strong>Telefone:</strong> <span id="telefoneCliente">(61) 99999-9999</span></p>
+      <div class="card-dados">
+        <div class="linha">
+          <p><strong>Nome:</strong> <span id="nomeCliente"></span></p>
+          <p><strong>Telefone:</strong> <span id="telefoneCliente"></span></p>
+        </div>
+
+        <div class="linha">
+          <p><strong>Email:</strong> <span id="emailCliente"></span></p>
+          <p><strong>CPF:</strong> <span id="cpfCliente"></span></p>
+        </div>
+
+        <div class="linha">
+          <p>
+            <strong>Data de Nascimento:</strong>
+            <span id="nascimentoCliente"></span>
+          </p>
+          <p><strong>Senha:</strong> <span id="senhaCliente"></span></p>
+        </div>
+
+        <button id="btnEditar">✏️ Editar Dados</button>
       </div>
 
-      <div class="linha">
-        <p><strong>Email:</strong> <span id="emailCliente">jose@email.com</span></p>
-        <p><strong>CPF:</strong> <span id="cpfCliente">123.456.789-00</span></p>
-      </div>
+      <!-- CARD DE EDIÇÃO (POPUP) -->
+      <div class="popup-editar" id="popupEditar">
+        <div class="popup-conteudo">
+          <h2>Editar Dados</h2>
+          <label>Telefone</label>
+          <input type="text" id="editTelefone" placeholder="(61) 99999-9999" />
 
-      <div class="linha">
-        <p><strong>Data de Nascimento:</strong> <span id="nascimentoCliente">12/03/1988</span></p>
-        <p><strong>Senha:</strong> <span id="senhaCliente">********</span></p>
-      </div>
+          <label>Email</label>
+          <input type="email" id="editEmail" placeholder="exemplo@email.com" />
 
-      <button id="btnEditar">✏️ Editar Dados</button>
-    </div>
+          <label>Senha</label>
+          <input type="password" id="editSenha" placeholder="Nova senha" />
 
-    <!-- CARD DE EDIÇÃO (POPUP) -->
-    <div class="popup-editar" id="popupEditar">
-      <div class="popup-conteudo">
-        <h2>Editar Dados</h2>
-        <label>Telefone</label>
-        <input type="text" id="editTelefone" placeholder="(61) 99999-9999">
-
-        <label>Email</label>
-        <input type="email" id="editEmail" placeholder="exemplo@email.com">
-
-        <label>Senha</label>
-        <input type="password" id="editSenha" placeholder="Nova senha">
-
-        <div class="botoes-popup">
-          <button id="salvarEdicao">Salvar</button>
-          <button id="fecharPopup">Cancelar</button>
+          <div class="botoes-popup">
+            <button id="salvarEdicao">Salvar</button>
+            <button id="fecharPopup">Cancelar</button>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!-- BOTÃO FIXO DE WHATSAPP -->
-  <a href="https://wa.me/55619840002200" class="whatsapp-float" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-  <script src="../JS/meusDados.js"></script>
-</body>
+    <!-- BOTÃO FIXO DE WHATSAPP -->
+    <a
+      href="https://wa.me/55619840002200"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script src="../JS/meusDados.js"></script>
+    <script>
+      (function () {
+        const endpoint = document.body.dataset.apiClientes || "/api/clientes";
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        function escapeHtml(s) {
+          return String(s || "");
+        }
+
+        async function fetchById(idToFetch) {
+          const try1 =
+            endpoint.replace(/\/$/, "") + "/" + encodeURIComponent(idToFetch);
+          try {
+            const res = await fetch(try1, { method: "GET" });
+            if (!res.ok) throw new Error("status " + res.status);
+            const json = await res.json();
+            return Array.isArray(json) ? json[0] : json;
+          } catch (e) {
+            const try2 = endpoint + "?id=" + encodeURIComponent(idToFetch);
+            const res2 = await fetch(try2, { method: "GET" });
+            if (!res2.ok) throw new Error("status " + res2.status);
+            const json2 = await res2.json();
+            return Array.isArray(json2) ? json2[0] : json2;
+          }
+        }
+
+        async function loadFirst() {
+          const res = await fetch(endpoint, { method: "GET" });
+          if (!res.ok) throw new Error("status " + res.status);
+          const list = await res.json();
+          if (Array.isArray(list) && list.length > 0) return list[0];
+          return null;
+        }
+
+        function populate(cliente) {
+          if (!cliente) return;
+          const nome = cliente.nome || cliente.name || "";
+          const telefone = cliente.telefone || cliente.phone || "";
+          const email = cliente.email || cliente.mail || "";
+          const cpf = cliente.cpf || "";
+          const nascimento =
+            cliente.nascimento ||
+            cliente.dataNascimento ||
+            cliente.data_nascimento ||
+            "";
+
+          const nomeEl = document.getElementById("nomeCliente");
+          const telefoneEl = document.getElementById("telefoneCliente");
+          const emailEl = document.getElementById("emailCliente");
+          const cpfEl = document.getElementById("cpfCliente");
+          const nascEl = document.getElementById("nascimentoCliente");
+          const senhaEl = document.getElementById("senhaCliente");
+
+          if (nomeEl) nomeEl.textContent = escapeHtml(nome);
+          if (telefoneEl) telefoneEl.textContent = escapeHtml(telefone);
+          if (emailEl) emailEl.textContent = escapeHtml(email);
+          if (cpfEl) cpfEl.textContent = escapeHtml(cpf);
+          if (nascEl) nascEl.textContent = escapeHtml(nascimento);
+          if (senhaEl) senhaEl.textContent = "********";
+
+          // preencher inputs de edição, se existirem
+          const editTelefone = document.getElementById("editTelefone");
+          const editEmail = document.getElementById("editEmail");
+          const editSenha = document.getElementById("editSenha");
+          if (editTelefone) editTelefone.value = telefone;
+          if (editEmail) editEmail.value = email;
+          if (editSenha) editSenha.value = "";
+        }
+
+        (async function () {
+          try {
+            let cliente = null;
+            if (id) {
+              cliente = await fetchById(id);
+            } else {
+              cliente = await loadFirst();
+            }
+            if (cliente) populate(cliente);
+          } catch (err) {
+            console.warn("Não foi possível carregar dados do cliente:", err);
+          }
+        })();
+      })();
+    </script>
+  </body>
 </html>

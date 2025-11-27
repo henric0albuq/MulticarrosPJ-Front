@@ -43,18 +43,18 @@
        
     <div class="card-dados">
       <div class="linha">
-        <p><strong>Nome:</strong> <span id="nomeCliente">José Alves</span></p>
-        <p><strong>Telefone:</strong> <span id="telefoneCliente">(61) 99999-9999</span></p>
+        <p><strong>Nome:</strong> <span id="nomeCliente"></span></p>
+        <p><strong>Telefone:</strong> <span id="telefoneCliente"></span></p>
       </div>
 
       <div class="linha">
-        <p><strong>Email:</strong> <span id="emailCliente">jose@email.com</span></p>
-        <p><strong>CPF:</strong> <span id="cpfCliente">123.456.789-00</span></p>
+        <p><strong>Email:</strong> <span id="emailCliente"></span></p>
+        <p><strong>CPF:</strong> <span id="cpfCliente"></span></p>
       </div>
 
       <div class="linha">
-        <p><strong>Data de Nascimento:</strong> <span id="nascimentoCliente">12/03/1988</span></p>
-        <p><strong>Senha:</strong> <span id="senhaCliente">********</span></p>
+        <p><strong>Data de Nascimento:</strong> <span id="nascimentoCliente"></span></p>
+        <p><strong>Senha:</strong> <span id="senhaCliente"></span></p>
       </div>
 
       <button id="btnEditar">✏️ Editar Dados</button>
@@ -151,6 +151,91 @@ popup?.addEventListener('click', e => {
 });
 </script>
 
+<script>
+      (function () {
+        const endpoint = document.body.dataset.apiClientes || "/api/clientes";
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        function escapeHtml(s) {
+          return String(s || "");
+        }
+
+        async function fetchById(idToFetch) {
+          const try1 =
+            endpoint.replace(/\/$/, "") + "/" + encodeURIComponent(idToFetch);
+          try {
+            const res = await fetch(try1, { method: "GET" });
+            if (!res.ok) throw new Error("status " + res.status);
+            const json = await res.json();
+            return Array.isArray(json) ? json[0] : json;
+          } catch (e) {
+            const try2 = endpoint + "?id=" + encodeURIComponent(idToFetch);
+            const res2 = await fetch(try2, { method: "GET" });
+            if (!res2.ok) throw new Error("status " + res2.status);
+            const json2 = await res2.json();
+            return Array.isArray(json2) ? json2[0] : json2;
+          }
+        }
+
+        async function loadFirst() {
+          const res = await fetch(endpoint, { method: "GET" });
+          if (!res.ok) throw new Error("status " + res.status);
+          const list = await res.json();
+          if (Array.isArray(list) && list.length > 0) return list[0];
+          return null;
+        }
+
+        function populate(cliente) {
+          if (!cliente) return;
+          const nome = cliente.nome || cliente.name || "";
+          const telefone = cliente.telefone || cliente.phone || "";
+          const email = cliente.email || cliente.mail || "";
+          const cpf = cliente.cpf || "";
+          const nascimento =
+            cliente.nascimento ||
+            cliente.dataNascimento ||
+            cliente.data_nascimento ||
+            "";
+
+          const nomeEl = document.getElementById("nomeCliente");
+          const telefoneEl = document.getElementById("telefoneCliente");
+          const emailEl = document.getElementById("emailCliente");
+          const cpfEl = document.getElementById("cpfCliente");
+          const nascEl = document.getElementById("nascimentoCliente");
+          const senhaEl = document.getElementById("senhaCliente");
+
+          if (nomeEl) nomeEl.textContent = escapeHtml(nome);
+          if (telefoneEl) telefoneEl.textContent = escapeHtml(telefone);
+          if (emailEl) emailEl.textContent = escapeHtml(email);
+          if (cpfEl) cpfEl.textContent = escapeHtml(cpf);
+          if (nascEl) nascEl.textContent = escapeHtml(nascimento);
+          if (senhaEl) senhaEl.textContent = "********";
+
+          // preencher inputs de edição, se existirem
+          const editTelefone = document.getElementById("editTelefone");
+          const editEmail = document.getElementById("editEmail");
+          const editSenha = document.getElementById("editSenha");
+          if (editTelefone) editTelefone.value = telefone;
+          if (editEmail) editEmail.value = email;
+          if (editSenha) editSenha.value = "";
+        }
+
+        (async function () {
+          try {
+            let cliente = null;
+            if (id) {
+              cliente = await fetchById(id);
+            } else {
+              cliente = await loadFirst();
+            }
+            if (cliente) populate(cliente);
+          } catch (err) {
+            console.warn("Não foi possível carregar dados do cliente:", err);
+          }
+        })();
+      })();
+    </script>
 
   </body>
 </html>

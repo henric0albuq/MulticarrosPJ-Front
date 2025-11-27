@@ -1,6 +1,6 @@
  const btnNovoVeiculo = document.getElementById('btnNovoVeiculo');
  btnNovoVeiculo.addEventListener('click', () => {
-  window.location.href = "cadastrar.html";
+  window.location.href = "cadastrarVeiculo.html";
 });
     const modal = document.getElementById('modalVeiculo');
     const btnCancelar = document.getElementById('btnCancelar');

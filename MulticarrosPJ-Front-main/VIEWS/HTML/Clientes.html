@@ -31,7 +31,47 @@
           
         </tr>
       </thead>
-      <tbody>
+  <script>
+    (function () {
+      const tbody = document.querySelector('#tabelaClientes tbody');
+      const endpoint = document.body.dataset.apiClientes || '/api/clientes';
+      if (!tbody) return;
+
+      function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+      fetch(endpoint, { method: 'GET' })
+        .then((res) => {
+          if (!res.ok) throw new Error('Erro ao buscar clientes: ' + res.status);
+          return res.json();
+        })
+        .then((data) => {
+          if (!Array.isArray(data)) {
+            console.warn('Resposta inesperada ao listar clientes', data);
+            return;
+          }
+          tbody.innerHTML = '';
+          data.forEach((c) => {
+            const nome = c.nome || c.name || c.nomeCompleto || '';
+            const email = c.email || c.mail || '';
+            const telefone = c.telefone || c.phone || '';
+            const cpf = c.cpf || '';
+            const carro = c.carro || c.carroComprado || c.carro_comprado || '';
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${escapeHtml(nome)}</td>
+              <td>${escapeHtml(email)}</td>
+              <td>${escapeHtml(telefone)}</td>
+              <td>${escapeHtml(cpf)}</td>
+              <td>${escapeHtml(carro)}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch((err) => {
+          console.error('Falha ao carregar clientes:', err);
+        });
+    })();
+  </script>
         <tr>
           <td>Ana Paula Silva</td>
           <td>ana@email.com</td>

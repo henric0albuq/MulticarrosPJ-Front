@@ -13,29 +13,29 @@
     </a>
     <div class="card-cadastro">
       <h2 class="card-titulo">Cadastrar / Editar Veículo 🚗</h2>
-      <form>
+      <form data-endpoint="/api/veiculos">
         <div class="form-row">
           <div class="form-group">
             <label>Marca/Modelo</label>
-            <input type="text" required />
+            <input type="text" name="marcaModelo" required />
           </div>
           <div class="form-group">
             <label>Preço (R$)</label>
-            <input type="number" required />
+            <input type="number" name="preco" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Ano Fabricação</label>
-            <input type="number" required />
+            <input type="number" name="anoFabricacao" required />
             <br>
             <label>Ano Modelo</label>
-            <input type="number" required />
+            <input type="number" name="anoModelo" required />
           </div>
           
           <div class="form-group">
             <label>Categoria</label>
-            <select required>
+            <select name="categoria" required>
               <option value="">-- selecione --</option>
               <option>Sedan</option>
               <option>SUV</option>
@@ -46,7 +46,7 @@
         </div>
       <div class="form-group">
             <label>Status</label>
-            <select required>
+              <select name="status" required>
               <option value="">-- selecione --</option>
               <option>Seminovo</option>
               <option>Novo</option>
@@ -54,7 +54,7 @@
           </div>    
           <div class="form-group">
             <label>Espécie</label>
-            <select required>
+              <select name="especie" required>
               <option value="">-- selecione --</option>
               <option>Automóvel</option>
               <option>Motocicleta</option>
@@ -62,7 +62,7 @@
           </div>    
           <div class="form-group">
             <label>Câmbio</label>
-            <select required>
+              <select name="cambio" required>
               <option value="">-- selecione --</option>
               <option>Automático</option>
               <option>Manual</option>
@@ -70,19 +70,19 @@
           </div>    
           <div class="form-group">
             <label>Cor</label>
-            <input type="text" required />
+              <input type="text" name="cor" required />
           </div>
           <div class="form-group">
             <label>Placa</label>
-            <input type="text" required />
+              <input type="text" name="placa" required />
           </div>
           <div class="form-group">
             <label>Chassi</label>
-            <input type="text" required />
+              <input type="text" name="chassi" required />
           </div>
           <div class="form-group">
             <label>Renavam</label>
-            <input type="text" required />
+              <input type="text" name="renavam" required />
           </div>
         <div class="form-group">
           <label for="fotoInput">Foto</label>
@@ -93,7 +93,7 @@
         </div>
         <div class="form-group">
           <label>Descrição</label>
-          <textarea rows="3"></textarea>
+            <textarea name="descricao" rows="3"></textarea>
         </div>
         <div class="form-actions">
           <button type="submit" class="btn primary">Salvar</button>
@@ -155,6 +155,39 @@
             fotoInput.click();
           });
         }
+      })();
+    </script>
+    
+    <script>
+      (function () {
+        const form = document.querySelector('form[data-endpoint]');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const endpoint = form.getAttribute('data-endpoint') || '/api/veiculos';
+          const fd = new FormData(form);
+          const obj = {};
+          for (const [k, v] of fd.entries()) obj[k] = v;
+
+          fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj),
+          })
+            .then((res) => {
+              if (!res.ok) throw new Error('Erro na requisição');
+              return res.json().catch(() => ({}));
+            })
+            .then((data) => {
+              console.log('Veículo salvo', data);
+              alert('Cadastro de veículo enviado com sucesso.');
+            })
+            .catch((err) => {
+              console.error(err);
+              alert('Falha ao enviar cadastro de veículo. Veja console.');
+            });
+        });
       })();
     </script>
   </body>

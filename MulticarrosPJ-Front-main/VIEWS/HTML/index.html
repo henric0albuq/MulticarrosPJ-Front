@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multicarros Home</title>
+    <link rel="stylesheet" href="../Css/responsive.css" />
+    <link rel="stylesheet" href="../Css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- TOPO FIXO -->
+    <header class="topo">
+      <div class="topo-logo">
+        <img src="../Images/multilogo.png" alt="Logo Multicarros" />
+      </div>
+
+      <!-- barra de pesquisa centralizada acima do menu -->
+      <div class="topo-search">
+        <div class="barra-pesquisa-container">
+          <i class="fa-solid fa-magnifying-glass icone-pesquisa"></i>
+          <input
+            type="text"
+            class="barra-pesquisa"
+            placeholder="Buscar veículo..."
+          />
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="financiamento.html">Financiamento</a>
+        <a href="sobreEmpresa.html">Sobre a Empresa</a>
+        <a href="contato.html">Contato</a>
+        <a href="login.html">LOGIN</a>
+      </nav>
+    </header>
+
+    <!-- BANNER -->
+    <section class="banner">
+      <br />
+      <br />
+      <h1>Aqui seu próximo <span>carro encontra você!</span></h1>
+      <p>
+        Na Multicarros você encontra os melhores veículos com a garantia de bons
+        negócios.
+      </p>
+      <br />
+
+      <!-- Botões do banner (marcas + ação) -->
+      <div class="banner-botoes">
+        <!-- Botão interativo de marcas -->
+        <div class="marcas-container">
+          <button id="btnMarcas" class="btn-marcas">
+            <i class="fa-solid fa-car"></i> Nossos Modelos
+            <i class="fa-solid fa-chevron-down seta"></i>
+          </button>
+          <ul id="listaMarcas" class="lista-marcas-animada">
+            <li><a href="#">Audi</a></li>
+            <li><a href="#">BMW</a></li>
+            <li><a href="#">Chevrolet</a></li>
+            <li><a href="#">Fiat</a></li>
+            <li><a href="#">Ford</a></li>
+            <li><a href="#">Honda</a></li>
+            <li><a href="#">Jeep</a></li>
+            <li><a href="#">Peugeot</a></li>
+            <li><a href="#">Renault</a></li>
+            <li><a href="#">Subaru</a></li>
+            <li><a href="#">Toyota</a></li>
+            <li><a href="#">Volkswagen</a></li>
+          </ul>
+        </div>
+
+        <a
+          href="https://www.google.com/maps/place/Multicarros/@-15.811896,-48.064726,15z/data=!4m6!3m5!1s0x935a333c90e88e27:0x83aa09beb7b37e9d!8m2!3d-15.811896!4d-48.064726!16s%2Fg%2F1yh8072l_?entry=ttu"
+          class="btn"
+          >Onde Estamos</a
+        >
+      </div>
+    </section>
+
+    <!-- CARROS -->
+    <h2>
+      <i class="fa-solid fa-star" style="color: #24aa4c"></i> Carros em Destaque
+    </h2>
+    <div id="destaqueContainer" class="carros-container">
+      <div class="car-card">
+        <div class="img-container">
+          <img
+            src="../Images/onix-plus-midnight-(22).webp"
+            alt="Chevrolet Onix"
+          />
+          <span class="badge">Chegou!</span>
+        </div>
+        <div class="car-info">
+          <h2>CHEVROLET ONIX</h2>
+          <p class="subtitle">1.0 Flex Manual</p>
+          <div class="details">
+            <span>📅 2022</span>
+            <span>⏱️ 36.000 Km</span>
+          </div>
+          <p class="price">R$ 82.900</p>
+          <button
+            class="offer-btn"
+            onclick="window.location.href='verDetalhes.html'"
+          >
+            Ver Detalhes
+          </button>
+        </div>
+      </div>
+      <!-- 🔹 fechamento da seção de destaque -->
+
+      <div class="car-card">
+        <div class="img-container">
+          <img src="../Images/Corolla1.jpg" alt="Toyota Corolla XEI" />
+          <span class="badge">Chegou!</span>
+        </div>
+        <div class="car-info">
+          <h2>Toyota Corolla XEI</h2>
+          <p class="subtitle">2.0 Flex Automático</p>
+          <div class="details">
+            <span>📅 2023</span>
+            <span>⏱️ 71.000 Km</span>
+          </div>
+          <p class="price">R$ 134.000</p>
+          <button class="offer-btn">Ver Detalhes</button>
+        </div>
+      </div>
+    </div>
+    <!-- 🔹 fechamento da seção de destaque -->
+
+    <!-- ESTOQUE DE CARROS -->
+    <h2>
+      <i class="fa-solid fa-car" style="color: #24aa4c"></i> Veículos em Estoque
+    </h2>
+    <div id="estoqueContainer" class="carros-container">
+      <div class="car-card">
+        <div class="img-container">
+          <img
+            src="../Images/bcad5924b5c214c0faf52777d41c80c1.jpg"
+            alt="Honda Civic"
+          />
+          <span class="badge">Seminovo</span>
+        </div>
+        <div class="car-info">
+          <h2>HONDA CIVIC</h2>
+          <p class="subtitle">2.0 Sport CVT</p>
+          <div class="details">
+            <span>📅 2023</span>
+            <span>⏱️ 20.000 Km</span>
+          </div>
+          <p class="price">R$ 124.900</p>
+          <button class="offer-btn">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="img-container">
+          <img
+            src="../Images/Novo-Gol-2013-Bluemotion-traseira-2.jpg"
+            alt="Gol G6"
+          />
+          <span class="badge">Seminovo</span>
+        </div>
+        <div class="car-info">
+          <h2>VOLKSWAGEN GOL G6</h2>
+          <p class="subtitle">1.6 Manual</p>
+          <div class="details">
+            <span>📅 2019</span>
+            <span>⏱️ 50.000 Km</span>
+          </div>
+          <p class="price">R$ 54.900</p>
+          <button class="offer-btn">Ver Detalhes</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-float">
+      <i class="fas fa-share-alt"></i>
+      <div class="social-popup">
+        <a
+          href="https://www.facebook.com/MCMULTICARROS/"
+          target="_blank"
+          class="social-link facebook"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/multicarrosveiculos/"
+          target="_blank"
+          class="social-link instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- WHATSAPP FIXO -->
+    <a href="https://wa.me/55619840002200" class="whatsapp" target="_blank"
+      >💬</a
+    >
+
+    <section class="vantagens">
+      <h2>Por que escolher a <span>Multicarros</span>?</h2>
+      <div class="vantagens-container">
+        <div class="vantagem-card">
+          <i class="fa-solid fa-car"></i>
+          <h3>Veículos Inspecionados</h3>
+          <p>
+            Todos os nossos carros passam por uma rigorosa avaliação mecânica e
+            de procedência.
+          </p>
+        </div>
+        <div class="vantagem-card">
+          <i class="fa-solid fa-money-bill-wave"></i>
+          <h3>Melhor Avaliação</h3>
+          <p>
+            Oferecemos o melhor preço do mercado e condições de pagamento
+            acessíveis.
+          </p>
+        </div>
+        <div class="vantagem-card">
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Confiança e Garantia</h3>
+          <p>
+            Com anos de experiência, garantimos transparência e confiança em
+            cada negociação.
+          </p>
+        </div>
+        <div class="vantagem-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>Atendimento Personalizado</h3>
+          <p>
+            Nosso time está pronto para te atender, além do nosso Atendimento
+            24H.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mapa">
+      <h2>📍 Encontre a Multicarros !</h2>
+      <p>Venha nos visitar e faça um test drive!</p>
+      <div class="mapa-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.398295547115!2d-48.0669156!3d-15.811891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a333c90e88e27%3A0x83aa09beb7b37e9d!2sMulticarros!5e0!3m2!1spt-BR!2sbr!4v1698798920146!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <!-- Coluna 1 -->
+        <div class="rodape-coluna">
+          <img
+            src="../Images/multilogo.png"
+            alt="Logo Multicarros"
+            class="rodape-logo"
+          />
+          <p>📍 QNE 7, Loja 19/20 , Taguatinga norte - Brasilia/DF</p>
+          <p>📞 (61) 3352-2619 | 📱 (61) 98400-0200</p>
+          <p>✉️ vendas@multicarros.com.br</p>
+        </div>
+
+        <div class="rodape-coluna">
+          <h4>Horário de Atendimento</h4>
+          <p>Segunda a Sexta: 8h - 18h</p>
+          <p>Sábado: 8h - 13h</p>
+          <p>Domingo: Fechado</p>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div class="rodape-coluna">
+          <h4>Links Rápidos</h4>
+          <a href="index.html">Home</a>
+          <a href="financiamento.html">Financiamento</a>
+          <a href="sobreEmpresa.html">Sobre a Empresa</a>
+          <a href="contato.html">Contato</a>
+        </div>
+
+        <!-- Coluna 3 -->
+        <div class="rodape-coluna">
+          <h4>Siga-nos</h4>
+          <a href="https://www.facebook.com/MCMULTICARROS/">🔗 Facebook</a>
+          <a href="https://www.instagram.com/multicarrosveiculos/"
+            >🔗 Instagram</a
+          >
+          <a href="https://wa.me/55619840002200">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="rodape-bottom">
+        <p>© 2025 Multicarros. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="../JS/redesSociais.js"></script>
+    <script src="../JS/home.js"></script>
+    <script src="../JS/avaliacao.js"></script>
+
+    <script>
+      const iconePesquisa = document.querySelector(".icone-pesquisa");
+      const barraPesquisa = document.querySelector(".barra-pesquisa");
+
+      barraPesquisa.addEventListener("focus", () => {
+        iconePesquisa.style.transform = "scale(1.2)";
+        setTimeout(() => (iconePesquisa.style.transform = "scale(1)"), 150);
+      });
+    </script>
+
+  //-- Script para carregar marcas dinamicamente --//
+    <script>
+      (function () {
+        const btn = document.getElementById("btnMarcas");
+        const lista = document.getElementById("listaMarcas");
+        if (!btn || !lista) return;
+
+        const endpoint = document.body.dataset.apiVeiculos || "/api/veiculos";
+
+        function textNodesToArray(list) {
+          return Array.from(list.querySelectorAll("li a"))
+            .map((a) => a.textContent.trim())
+            .filter(Boolean);
+        }
+
+        function escapeHtml(s) {
+          return String(s || "");
+        }
+
+        // Load brands from existing static list first
+        const existing = new Set(textNodesToArray(lista));
+
+        // Fetch vehicles and derive brands
+        fetch(endpoint, { method: "GET" })
+          .then((res) => {
+            if (!res.ok)
+              throw new Error("Erro ao buscar veículos: " + res.status);
+            return res.json();
+          })
+          .then((data) => {
+            if (!Array.isArray(data)) return;
+            data.forEach((v) => {
+              let brand = (v.marca || v.brand || v.make || "").trim();
+              if (!brand && v.marcaModelo) {
+                // try to extract brand from combined field
+                const mm = String(v.marcaModelo || "").trim();
+                if (mm) {
+                  // prefer part before first space or before a dash
+                  brand = mm
+                    .split(/[\-–—]/)[0]
+                    .trim()
+                    .split(" ")[0];
+                }
+              }
+              if (!brand && v.modelo) brand = String(v.modelo).split(" ")[0];
+              if (brand) existing.add(brand);
+            });
+
+            // render sorted list
+            const sorted = Array.from(existing).sort((a, b) =>
+              a.localeCompare(b, "pt-BR", { sensitivity: "base" })
+            );
+            lista.innerHTML = "";
+            sorted.forEach((b) => {
+              const li = document.createElement("li");
+              const a = document.createElement("a");
+              a.href = "#";
+              a.textContent = escapeHtml(b);
+              li.appendChild(a);
+              lista.appendChild(li);
+            });
+          })
+          .catch((err) => {
+            console.warn(
+              "Não foi possível carregar marcas dinamicamente:",
+              err
+            );
+          });
+
+        // keep simple toggle behavior (some CSS may rely on this)
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          lista.classList.toggle("open");
+        });
+      })();
+    </script>
+
+//-- script para busca de veículos na barra de pesquisa --//
+    <script>
+      (function () {
+        const input = document.querySelector(".barra-pesquisa");
+        const endpoint = document.body.dataset.apiVeiculos || "/api/veiculos";
+        const destaqueEl = document.getElementById("destaqueContainer");
+        const estoqueEl = document.getElementById("estoqueContainer");
+        if (!input || !destaqueEl || !estoqueEl) return;
+
+        function escapeHtml(s) {
+          return String(s || "");
+        }
+
+        function makeCard(v) {
+          const imgSrc =
+            v.foto || v.image || v.imagem || "../Images/default-car.jpg";
+          const badge = v.badge || v.status || (v.novo ? "Chegou!" : "") || "";
+          const modelo = v.modelo || v.marcaModelo || v.marca_modelo || "";
+          const subtitle = v.subtitle || (v.motor ? v.motor : "") || "";
+          const ano = v.ano || v.anoFabricacao || v.ano_fabricacao || "";
+          const km = v.km || v.kilometragem || "";
+          const preco = v.preco
+            ? "R$ " + Number(v.preco).toLocaleString("pt-BR")
+            : v.precoText || "---";
+          const id = v.id || v._id || "";
+          const card = document.createElement("div");
+          card.className = "car-card";
+          card.innerHTML = `
+            <div class="img-container">
+              <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(modelo)}" />
+              ${badge ? `<span class="badge">${escapeHtml(badge)}</span>` : ""}
+            </div>
+            <div class="car-info">
+              <h2>${escapeHtml(modelo)}</h2>
+              <p class="subtitle">${escapeHtml(subtitle)}</p>
+              <div class="details">
+                <span>📅 ${escapeHtml(ano)}</span>
+                <span>⏱️ ${escapeHtml(km)}</span>
+              </div>
+              <p class="price">${escapeHtml(preco)}</p>
+              <button class="offer-btn" onclick="window.location.href='verDetalhes.html${
+                id ? "?id=" + encodeURIComponent(id) : ""
+              }'">Ver Detalhes</button>
+            </div>
+          `;
+          return card;
+        }
+
+        let lastQuery = "";
+        let timeout = null;
+
+        function performSearch(q) {
+          const qTrim = String(q || "").trim();
+          const url = qTrim
+            ? endpoint +
+              (endpoint.includes("?") ? "&" : "?") +
+              "q=" +
+              encodeURIComponent(qTrim)
+            : endpoint;
+          fetch(url, { method: "GET" })
+            .then((res) => {
+              if (!res.ok) throw new Error("status " + res.status);
+              return res.json();
+            })
+            .then((data) => {
+              if (!Array.isArray(data)) return;
+              // choose destaque + restante similar to initial load
+              const destaque = data.filter(
+                (v) =>
+                  v.destaque ||
+                  v.badge === "Chegou!" ||
+                  (v.status && String(v.status).toLowerCase().includes("novo"))
+              );
+              const restante = data.filter((v) => !destaque.includes(v));
+              const destaqueList = (
+                destaque.length ? destaque : data.slice(0, 4)
+              ).slice(0, 6);
+
+              destaqueEl.innerHTML = "";
+              estoqueEl.innerHTML = "";
+              destaqueList.forEach((v) => destaqueEl.appendChild(makeCard(v)));
+              restante.forEach((v) => estoqueEl.appendChild(makeCard(v)));
+            })
+            .catch((err) => {
+              console.warn("Pesquisa falhou:", err);
+            });
+        }
+
+        input.addEventListener("input", function (e) {
+          const q = e.target.value;
+          if (q === lastQuery) return;
+          lastQuery = q;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => performSearch(q), 300);
+        });
+
+        // optional: search on Enter immediately
+        input.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            clearTimeout(timeout);
+            performSearch(this.value);
+          }
+        });
+      })();
+    </script>
+    
+//-- script para cards de veículos --//
+    <script>
+      (function () {
+        const endpoint = document.body.dataset.apiVeiculos || "/api/veiculos";
+        const destaqueEl = document.getElementById("destaqueContainer");
+        const estoqueEl = document.getElementById("estoqueContainer");
+        if (!destaqueEl || !estoqueEl) return;
+
+        function escapeHtml(s) {
+          return String(s || "");
+        }
+
+        function makeCard(v) {
+          const imgSrc =
+            v.foto || v.image || v.imagem || "../Images/default-car.jpg";
+          const badge = v.badge || v.status || (v.novo ? "Chegou!" : "") || "";
+          const modelo = v.modelo || v.marcaModelo || v.marca_modelo || "";
+          const subtitle = v.subtitle || (v.motor ? v.motor : "") || "";
+          const ano = v.ano || v.anoFabricacao || v.ano_fabricacao || "";
+          const km = v.km || v.kilometragem || "";
+          const preco = v.preco
+            ? "R$ " + Number(v.preco).toLocaleString("pt-BR")
+            : v.precoText || "---";
+          const id = v.id || v._id || "";
+
+          const card = document.createElement("div");
+          card.className = "car-card";
+          card.innerHTML = `
+            <div class="img-container">
+              <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(modelo)}" />
+              ${badge ? `<span class="badge">${escapeHtml(badge)}</span>` : ""}
+            </div>
+            <div class="car-info">
+              <h2>${escapeHtml(modelo)}</h2>
+              <p class="subtitle">${escapeHtml(subtitle)}</p>
+              <div class="details">
+                <span>📅 ${escapeHtml(ano)}</span>
+                <span>⏱️ ${escapeHtml(km)}</span>
+              </div>
+              <p class="price">${escapeHtml(preco)}</p>
+              <button class="offer-btn" onclick="window.location.href='verDetalhes.html${
+                id ? "?id=" + encodeURIComponent(id) : ""
+              }'">Ver Detalhes</button>
+            </div>
+          `;
+          return card;
+        }
+
+        fetch(endpoint, { method: "GET" })
+          .then((res) => {
+            if (!res.ok)
+              throw new Error("Erro ao buscar veículos: " + res.status);
+            return res.json();
+          })
+          .then((data) => {
+            if (!Array.isArray(data)) return;
+            // determine destaque: items flagged as destaque/novo/chegou or first 4
+            const destaque = data.filter(
+              (v) =>
+                v.destaque ||
+                v.badge === "Chegou!" ||
+                (v.status && String(v.status).toLowerCase().includes("novo"))
+            );
+            const restante = data.filter((v) => !destaque.includes(v));
+            const destaqueList = (
+              destaque.length ? destaque : data.slice(0, 4)
+            ).slice(0, 6);
+
+            // clear existing static cards before rendering fetched ones
+            destaqueEl.innerHTML = "";
+            estoqueEl.innerHTML = "";
+
+            destaqueList.forEach((v) => {
+              destaqueEl.appendChild(makeCard(v));
+            });
+
+            restante.forEach((v) => {
+              estoqueEl.appendChild(makeCard(v));
+            });
+          })
+          .catch((err) => {
+            console.warn(
+              "Não foi possível carregar veículos dinamicamente:",
+              err
+            );
+            // leave static content as fallback
+          });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,56 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhes do Veículo</title>
-    <link rel="stylesheet" href="../Css/verDetalhes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../Css/verDetalhes.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- HEADER -->
-  <header class="topo">
-    <div class="topo-logo">
-      <img src="../Images/multilogo.png" alt="Logo Multicarros" />
-      <h2>Detalhes do Veículo</h2>
-    </div>
-  </header>
-
-  <!-- CONTEÚDO -->
-  <main class="detalhes-container">
-    <div class="galeria">
-      <img src="../Images/onix-plus-midnight-(22).webp" alt="Chevrolet Onix" class="foto-principal" id="fotoPrincipal">
-      <div class="miniaturas">
-        <img src="../Images/interna-onix.jpg" alt="Chevrolet Onix interior" onclick="mudarImagem(this)">
-        <img src="../Images/Onix -lateral.jpg" alt="Chevrolet Onix lateral" onclick="mudarImagem(this)">
-        <img src="../Images/Chevrolet-Onix-Sedan-frente.jpg" alt="Chevrolet Onix frente" onclick="mudarImagem(this)">
-        <img src="../Images/onix-plus-midnight-(22).webp" alt="Chevrolet Onix traseira" onclick="mudarImagem(this)">
+    <header class="topo">
+      <div class="topo-logo">
+        <img src="../Images/multilogo.png" alt="Logo Multicarros" />
+        <h2>Detalhes do Veículo</h2>
       </div>
-    </div>
+    </header>
 
-    <div class="info-veiculo">
-      <h1>Chevrolet Onix 1.0 Flex Manual</h1>
-      <p class="preco">R$ 82.900</p>
+    <!-- CONTEÚDO -->
+    <main class="detalhes-container">
+      <div class="galeria">
+        <img
+          src="../Images/onix-plus-midnight-(22).webp"
+          alt="Chevrolet Onix"
+          class="foto-principal"
+          id="fotoPrincipal"
+        />
+        <div class="miniaturas">
+          <img
+            src="../Images/interna-onix.jpg"
+            alt="Chevrolet Onix interior"
+            onclick="mudarImagem(this)"
+          />
+          <img
+            src="../Images/Onix -lateral.jpg"
+            alt="Chevrolet Onix lateral"
+            onclick="mudarImagem(this)"
+          />
+          <img
+            src="../Images/Chevrolet-Onix-Sedan-frente.jpg"
+            alt="Chevrolet Onix frente"
+            onclick="mudarImagem(this)"
+          />
+          <img
+            src="../Images/onix-plus-midnight-(22).webp"
+            alt="Chevrolet Onix traseira"
+            onclick="mudarImagem(this)"
+          />
+        </div>
+      </div>
 
-      <table class="tabela-info">
-        <tr><td>Combustível</td><td>FLEX</td></tr>
-        <tr><td>Cor</td><td>Preto</td></tr>
-        <tr><td>Placa</td><td>T**-***6</td></tr>
-        <tr><td>KM</td><td>36.000</td></tr>
-        <tr><td>Ano Fabricação</td><td>2021</td></tr>
-        <tr><td>Ano Modelo</td><td>2022</td></tr>
-      </table>
+      <div class="info-veiculo">
+        <h1>Chevrolet Onix 1.0 Flex Manual</h1>
+        <p class="preco">R$ 82.900</p>
 
-      <button class="btn-voltar" onclick="history.back()">⬅ Voltar</button>
-    </div>
-  </main>
+        <table class="tabela-info">
+          <tr>
+            <td>Combustível</td>
+            <td>FLEX</td>
+          </tr>
+          <tr>
+            <td>Cor</td>
+            <td>Preto</td>
+          </tr>
+          <tr>
+            <td>Placa</td>
+            <td>T**-***6</td>
+          </tr>
+          <tr>
+            <td>KM</td>
+            <td>36.000</td>
+          </tr>
+          <tr>
+            <td>Ano Fabricação</td>
+            <td>2021</td>
+          </tr>
+          <tr>
+            <td>Ano Modelo</td>
+            <td>2022</td>
+          </tr>
+        </table>
 
-  <!-- BOTÃO WHATSAPP FIXO -->
-  <a href="https://wa.me/55619840002200?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Chevrolet%20Onix%201.0%20Flex%20Manual."
-     class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+        <button class="btn-voltar" onclick="history.back()">⬅ Voltar</button>
+      </div>
+    </main>
 
-  <script src="../JS/verDetalhes.js"></script>
-</body>
+    <!-- BOTÃO WHATSAPP FIXO -->
+    <a
+      href="https://wa.me/55619840002200?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Chevrolet%20Onix%201.0%20Flex%20Manual."
+      class="whatsapp-float"
+      target="_blank"
+      title="Falar no WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="../JS/verDetalhes.js"></script>
+    
+    <script>
+      (function () {
+        // Helpers
+        function qs(name) {
+          const params = new URLSearchParams(window.location.search);
+          return params.get(name);
+        }
+
+        function escape(s) {
+          return String(s || "");
+        }
+
+        const apiBase = document.body.dataset.apiVeiculos || "/api/veiculos";
+        const id = qs("id");
+
+        const fotoPrincipal = document.getElementById("fotoPrincipal");
+        const miniaturas = document.querySelector(".miniaturas");
+        const titulo = document.querySelector(".info-veiculo h1");
+        const precoEl = document.querySelector(".info-veiculo .preco");
+        const tabela = document.querySelector(".tabela-info");
+        const whatsappLink = document.querySelector(".whatsapp-float");
+
+        function renderFields(v) {
+          if (!v) return;
+          const modelo = v.marcaModelo || v.modelo || "";
+          const subtitle = v.subtitle || v.motor || "" || "";
+          const preco = v.preco
+            ? "R$ " + Number(v.preco).toLocaleString("pt-BR")
+            : v.precoText || "---";
+          const foto =
+            v.foto ||
+            v.image ||
+            (v.images && v.images[0]) ||
+            "../Images/default-car.jpg";
+
+          if (fotoPrincipal) fotoPrincipal.src = escape(foto);
+          if (titulo)
+            titulo.textContent = `${modelo} ${
+              subtitle ? " - " + subtitle : ""
+            }`.trim();
+          if (precoEl) precoEl.textContent = preco;
+
+          // build table rows dynamically to reflect available fields
+          if (tabela) {
+            const rows = [
+              [
+                "Combustível",
+                v.combustivel || v.combustible || v.fuel || "---",
+              ],
+              ["Cor", v.cor || v.color || "---"],
+              ["Placa", v.placa || v.plate || "---"],
+              ["KM", v.km || v.kilometragem || v.mileage || "---"],
+              [
+                "Ano Fabricação",
+                v.anoFabricacao || v.ano_fabricacao || v.ano || "---",
+              ],
+              ["Ano Modelo", v.anoModelo || v.ano_modelo || "---"],
+            ];
+            tabela.innerHTML = rows
+              .map(
+                (r) =>
+                  `<tr><td>${escape(r[0])}</td><td>${escape(r[1])}</td></tr>`
+              )
+              .join("");
+          }
+
+          // thumbnails
+          if (miniaturas) {
+            miniaturas.innerHTML = "";
+            const imgs = [];
+            if (v.images && Array.isArray(v.images)) imgs.push(...v.images);
+            if (v.gallery && Array.isArray(v.gallery)) imgs.push(...v.gallery);
+            if (v.foto) imgs.unshift(v.foto);
+            if (v.image) imgs.unshift(v.image);
+            if (imgs.length === 0 && foto) imgs.push(foto);
+
+            imgs.slice(0, 6).forEach((src) => {
+              const im = document.createElement("img");
+              im.src = src;
+              im.alt = modelo;
+              im.addEventListener("click", function () {
+                if (fotoPrincipal) fotoPrincipal.src = this.src;
+              });
+              miniaturas.appendChild(im);
+            });
+          }
+
+          // update WhatsApp link to include model
+          if (whatsappLink) {
+            const base = whatsappLink.href.split("?")[0];
+            const text = encodeURIComponent(
+              `Olá! Gostaria de saber mais sobre: ${modelo} ${subtitle}`
+            );
+            whatsappLink.href = base + "?text=" + text;
+          }
+        }
+
+        function fetchById(idToFetch) {
+          const try1 =
+            apiBase.replace(/\/$/, "") + "/" + encodeURIComponent(idToFetch);
+          return fetch(try1, { method: "GET" })
+            .then((res) => {
+              if (!res.ok) throw new Error("status " + res.status);
+              return res.json();
+            })
+            .catch(() => {
+              const try2 = apiBase + "?id=" + encodeURIComponent(idToFetch);
+              return fetch(try2, { method: "GET" }).then((r) => {
+                if (!r.ok) throw new Error("status " + r.status);
+                return r.json();
+              });
+            });
+        }
+
+        if (id) {
+          fetchById(id)
+            .then((data) => {
+              // backend may return object or array
+              const v = Array.isArray(data) ? data[0] : data;
+              renderFields(v);
+            })
+            .catch((err) => {
+              console.error("Erro ao buscar detalhes do veículo:", err);
+            });
+        } else {
+          // if no id provided, try to fetch list and use first
+          fetch(apiBase, { method: "GET" })
+            .then((res) => {
+              if (!res.ok) throw new Error("status " + res.status);
+              return res.json();
+            })
+            .then((list) => {
+              if (Array.isArray(list) && list.length > 0) renderFields(list[0]);
+            })
+            .catch((err) => {
+              console.warn(
+                "Não foi possível carregar detalhes do veículo automaticamente:",
+                err
+              );
+            });
+        }
+      })();
+    </script>
+  </body>
 </html>

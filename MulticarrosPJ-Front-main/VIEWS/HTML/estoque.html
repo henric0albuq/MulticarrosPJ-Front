@@ -1,77 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estoque</title>
-    <link rel="stylesheet" href="../Css/estoque.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../Css/estoque.css" />
+  </head>
+  <body>
     <div class="header-left">
       <button class="btn-voltar" id="btnVoltar"><span>←</span> Voltar</button>
     </div>
-    
-    <header>
-    <h1>Estoque Veículos</h1>
-    <button class="btn-novo" id="btnNovoVeiculo">+ Novo Veículo</button>
-  </header>
 
-  <div class="container">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar veículo...">
+    <header>
+      <h1>Estoque Veículos</h1>
+      <button class="btn-novo" id="btnNovoVeiculo">+ Novo Veículo</button>
+    </header>
+
+    <div class="container">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar veículo..." />
+      </div>
+
+      <table id="tabelaVeiculo">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Cor</th>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Ano Fabricação</th>
+            <th>Ano Modelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Onix</td>
+            <td>Preto</td>
+            <td>ASG1548</td>
+            <td>Chevrolet</td>
+            <td>2024</td>
+            <td>2025</td>
+          </tr>
+          <tr>
+            <td>Argo</td>
+            <td>Branco</td>
+            <td>GTX5433</td>
+            <td>FIAT</td>
+            <td>2023</td>
+            <td>2023</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <table id="tabelaVeiculo">
-      <thead>
-        <tr>
-          <th>Modelo</th>
-          <th>Cor</th>
-          <th>Placa</th>
-          <th>Marca</th>
-          <th>Ano Fabricação</th>
-          <th>Ano Modelo</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Onix</td>
-          <td>Preto</td>
-          <td>ASG1548</td>
-          <td>Chevrolet</td>
-          <td>2024</td>
-          <td>2025</td>
-          
-        </tr>
-        <tr>
-          <td>Argo</td>
-          <td>Branco</td>
-          <td>GTX5433</td>
-          <td>FIAT</td>
-          <td>2023</td>
-          <td>2023</td>
-          
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <!-- Modal de cadastro -->
+    <div class="modal" id="modalVeiculo">
+      <div class="modal-content">
+        <h2>Novo Veículo</h2>
+        <input type="text" id="nome" placeholder="Nome completo" />
+        <input type="email" id="email" placeholder="Email" />
+        <input type="text" id="telefone" placeholder="Telefone" />
+        <input type="text" id="cpf" placeholder="CPF" />
+        <input type="text" id="carro" placeholder="Carro comprado" />
 
-  <!-- Modal de cadastro -->
-  <div class="modal" id="modalVeiculo">
-    <div class="modal-content">
-      <h2>Novo Veículo</h2>
-      <input type="text" id="nome" placeholder="Nome completo" />
-      <input type="email" id="email" placeholder="Email" />
-      <input type="text" id="telefone" placeholder="Telefone" />
-      <input type="text" id="cpf" placeholder="CPF" />
-      <input type="text" id="carro" placeholder="Carro comprado" />
-
-      <div class="modal-actions">
-        <button class="btn-cancelar" id="btnCancelar">Cancelar</button>
-        <button class="btn-salvar" id="btnSalvar">Salvar</button>
+        <div class="modal-actions">
+          <button class="btn-cancelar" id="btnCancelar">Cancelar</button>
+          <button class="btn-salvar" id="btnSalvar">Salvar</button>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="../JS/estoque.js"></script>
-</body>
+    <script src="../JS/estoque.js"></script>
+    <script>
+      (function () {
+        const tbody = document.querySelector("#tabelaVeiculo tbody");
+        const endpoint = document.body.dataset.apiVeiculos || "/api/veiculos";
+        if (!tbody) return;
+
+        function escapeHtml(s) {
+          return String(s || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        }
+
+        fetch(endpoint, { method: "GET" })
+          .then((res) => {
+            if (!res.ok)
+              throw new Error("Erro ao buscar veículos: " + res.status);
+            return res.json();
+          })
+          .then((data) => {
+            if (!Array.isArray(data)) {
+              console.warn("Resposta inesperada ao listar veículos", data);
+              return;
+            }
+            tbody.innerHTML = "";
+            data.forEach((v) => {
+              const modelo =
+                v.modelo || v.marcaModelo || v.marca_modelo || v.name || "";
+              const cor = v.cor || "";
+              const placa = v.placa || "";
+              const marca = v.marca || "";
+              const anoFab = v.anoFabricacao || v.ano_fabricacao || v.ano || "";
+              const anoModelo = v.anoModelo || v.ano_modelo || "";
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+              <td>${escapeHtml(modelo)}</td>
+              <td>${escapeHtml(cor)}</td>
+              <td>${escapeHtml(placa)}</td>
+              <td>${escapeHtml(marca)}</td>
+              <td>${escapeHtml(anoFab)}</td>
+              <td>${escapeHtml(anoModelo)}</td>
+            `;
+              tbody.appendChild(tr);
+            });
+          })
+          .catch((err) => {
+            console.error("Falha ao carregar veículos:", err);
+          });
+      })();
+    </script>
+  </body>
 </html>
